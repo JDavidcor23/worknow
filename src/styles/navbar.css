@@ -1,4 +1,3 @@
-
 .navbar{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,4 +20,3 @@
 .nav-main > img, h5 {
     cursor: pointer;
 }
-
