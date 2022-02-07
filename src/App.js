@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Home from "./Pages/Home.js";
-import Aliado from "./Pages/Aliado";
-import Register from "./Pages/Register";
-import Login from "./Pages/Login";
+import Home from "./componentes/home/Home"
+import Aliado from "./componentes/Aliado";
+import Register from "./componentes/Register";
+import Login from "./componentes/Login";
 
 function App() {
   return (
