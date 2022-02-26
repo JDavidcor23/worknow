@@ -1,0 +1,46 @@
+.how-cont{
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 51%, rgba(13,128,163,1) 51%);
+height: 100vh;
+border-bottom: 1px rgba(238, 238, 238, 0.83) solid;
+box-shadow: 5px 4px 5px rgba(230, 230, 230, 0.844);
+display: grid;
+grid-template-rows: 30% 40%;
+}
+
+.how-title{
+    font-size: 3.5rem;
+    text-align: center;
+    padding: 70px;
+    color: white;
+}
+
+.how-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.how-cards > div {
+    box-shadow: 1px 1px 5px #53A4BD;
+}
+
+.info-card1, .info-card2, .info-card3{
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    width: 250px;
+    height: 350px;
+    border-radius: 100px 0px 100px 0px;
+    display: grid;
+    grid-template-rows: 128px auto auto;
+    justify-items: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #333435;
+}
+
+.cardTitle{
+    color: #53A4BD;
+    font-size: 1.3rem;
+    font-weight: 600;
+}

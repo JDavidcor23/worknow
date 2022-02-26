@@ -10,6 +10,7 @@ import { getAuth,onAuthStateChanged } from "firebase/auth";
 import { loginSincrono } from '../actions/actionLogin';
 import Home from "../componentes/home/Home"
 import Register from '../componentes/Register/Register';
+import HowDoesItWorks from '../componentes/home/HowDoesItWorks';
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -33,6 +34,7 @@ function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/como-funciona" element={<HowDoesItWorks/>}/>
         <Route path="/login" element={
         <PublicRoute isAuthenticated={isLoggedIn}>
             <Login/> 

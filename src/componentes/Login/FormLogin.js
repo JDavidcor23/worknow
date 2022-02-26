@@ -24,9 +24,9 @@ const FormLogin = () => {
           dispatch(loginGoogle());
       }
   return (
-    <div style={{width: "40%", display:"flex", flexDirection:"column", justifyContent:"center"}}>
+    <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
     <Form  onSubmit={handleLogin}>
-      <h2>INICIO DE SESION</h2>
+      <h2 style={{color: "#333435", fontFamily:"Noto Sans', sans-serif", fontWeight:"600", fontSize:"2rem"}}>INICIO DE SESIÓN</h2>
       <Input 
       type="email" 
       placeholder="Correo electronico"
@@ -40,17 +40,17 @@ const FormLogin = () => {
       value={password}
       onChange={handleInputChange} 
       />
-      <Button type="submit">Enviar</Button>
+      <Button type="submit">Ingresar</Button>
     </Form>
-    <button 
-        style={{ margin: "10px 0", background:"#3F51B5", color:"white", width:"90%"}}
+    <Button
+        style={{ margin: "15px 0", display:"flex", justifyContent:"center", background:"#3F51B5", color:"white"}}
         onClick={handleFacebook}
-        ><img src="https://res.cloudinary.com/dhu6ga6hl/image/upload/v1642524270/amazzonas/qijmxlqedsvoe06d3xhp.png" alt="" width="25px"/>Iniciar con Facebook</button>
-        <button 
+        ><img src="https://res.cloudinary.com/dhu6ga6hl/image/upload/v1642524270/amazzonas/qijmxlqedsvoe06d3xhp.png" alt="" width="25px"/>Iniciar con Facebook</Button>
+        <Button 
         className="google"
         onClick={handleGoogle}
-        style={{ width: "90%" }}
-        ><img src="https://img.icons8.com/color/16/000000/google-logo.png" alt=""/>Iniciar con Google</button>
+        style={{ display:"flex", justifyContent:"center", background: "white", color:"#333435", border:"1px solid gray" }}
+        ><img src="https://img.icons8.com/color/16/000000/google-logo.png" style={{width:"25px"}} alt=""/>Iniciar con Google</Button>
     </div>
   );
 };

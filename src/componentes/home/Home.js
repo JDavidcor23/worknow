@@ -2,10 +2,14 @@ import React from 'react';
 import Navbar from './Navbar';
 import "../../styles/home.css"
 import memphis from "../../resources/home-guy.png"
+import AboutUs from './AboutUs';
+import HowDoesItWorks from './HowDoesItWorks';
+import Footer from './Footer';
 
 const Home = () => {
     return (
-        <div className='main-home'>
+        <>
+        <div className='main-home' id='inicio'>
             <Navbar/>
             <main className='home-cont'>
                 <div className='content'>
@@ -13,7 +17,7 @@ const Home = () => {
                     <p>Somos la red que te conecta con el mejor aliado</p>
                     <div className='search'>
                         <input placeholder='Busca tu aliado'/>
-                        <button><i class="fas fa-search"></i>
+                        <button><i className="fas fa-search"></i>
                         </button>
                     </div>
                     <div className='buttons'>
@@ -26,6 +30,10 @@ const Home = () => {
                 </div>
             </main>
         </div>
+        <AboutUs/>
+        <HowDoesItWorks/>
+        <Footer/>
+        </>
     );
 };
 

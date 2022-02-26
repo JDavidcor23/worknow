@@ -1,7 +1,7 @@
 .main-home{
     background: #E8F3FF;
     color: #333435;
-    height: 100vh;
+    min-height: 100vh
 }
 
 .main-title{
