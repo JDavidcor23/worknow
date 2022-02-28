@@ -1,0 +1,24 @@
+.list-container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 20% 60%;
+    grid-template-areas: 
+    "search orderby"
+    "search cards"
+    ". cards"
+    ;
+    background-color: #E8F3FF;
+    height: 100vh;
+}
+
+.cards{
+    grid-area: cards;
+}
+
+.orderby{
+    grid-area: orderby;
+}
+
+.search{
+    grid-area: search;
+}

@@ -11,6 +11,7 @@ import { loginSincrono } from '../actions/actionLogin';
 import Home from "../componentes/home/Home"
 import Register from '../componentes/Register/Register';
 import HowDoesItWorks from '../componentes/home/HowDoesItWorks';
+import List from '../componentes/list/List';
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -24,7 +25,7 @@ function AppRouter() {
          dispatch(loginSincrono(user.uid,user.displayName))
         }
         else{
-         setIsLoggedIn(false)
+        setIsLoggedIn(false)
         }
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,11 +36,12 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/como-funciona" element={<HowDoesItWorks/>}/>
-        <Route path="/login" element={
+        <Route path="/listado" element={<List/>}/>
+        <Route path="/ingresar" element={
         <PublicRoute isAuthenticated={isLoggedIn}>
             <Login/> 
         </PublicRoute>}/>
-         <Route path="/register" element={
+        <Route path="/registro" element={
         <PublicRoute isAuthenticated={isLoggedIn}>
             <Register/>
         </PublicRoute>
@@ -49,7 +51,7 @@ function AppRouter() {
               <DashboardRoutes/>
           </PrivateRoute>
           }/>
-      </Routes>
+        </Routes>
     </BrowserRouter>
   );
 }

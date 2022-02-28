@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from "react-redux";
 import {registroEmailPasswordNombre} from '../../actions/actionRegister';
+import { Link } from 'react-router-dom';
 const FormRegister = () => {
   const dispatch = useDispatch();
 
@@ -29,7 +30,7 @@ const FormRegister = () => {
 }
     return (
         <Form onSubmit={handleRegistro}>
-        <h2>Registrarse</h2>
+        <h2 style={{color: "#333435", fontFamily:"Noto Sans', sans-serif", fontWeight:"600", fontSize:"2rem"}}>Registrarse</h2>
         <Input type="Nombre"   placeholder='Nombre'
         name="name"
         value={name}
@@ -53,6 +54,8 @@ const FormRegister = () => {
          value={pass2}
          onChange={handleInputChange}
          />
+        <Link style={{fontSize:"0.8rem", textAlign:"right", padding:"0px 20px"}} to="/login">¿Ya tienes una cuenta?, ingresa aquí</Link>
+        
         <Button type="submit">Enviar</Button>
       </Form>
     );

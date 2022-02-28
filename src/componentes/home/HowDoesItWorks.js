@@ -23,14 +23,14 @@ const HowDoesItWorks = () => {
                         <picture>
                         <img src={user} alt="" />
                         </picture>
-                        <p className='cardTitle'>Elige tu ubicación</p>
+                        <p className='cardTitle'>Busca tu aliado</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quia voluptates modi excepturi eum, nemo aspernatur incidunt, error vitae, iure nesciunt. Aliquid, quas modi at explicabo optio labore vero?</p>
                     </div>
                     <div className='info-card3'>
                         <picture>
                         <img src={message} alt="" />
                         </picture>
-                        <p className='cardTitle'>Elige tu ubicación</p>
+                        <p className='cardTitle'>Conecta con tu aliado</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quia voluptates modi excepturi eum, nemo aspernatur incidunt, error vitae, iure nesciunt. Aliquid, quas modi at explicabo optio labore vero?</p>
                     </div>
                 </div>

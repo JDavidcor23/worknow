@@ -3,6 +3,7 @@ import {useForm } from '../../hooks/useForm';
 import { useDispatch } from "react-redux";
 import {Form, Input, Button} from '../../styles/StyledComponents/formLogin'
 import { loginGoogle, loginEmailPassword, loginFacebook } from "../../actions/actionLogin";
+import { Link } from "react-router-dom";
 const FormLogin = () => {
         const dispatch = useDispatch()
         const [ values, handleInputChange ] = useForm({
@@ -26,7 +27,7 @@ const FormLogin = () => {
   return (
     <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
     <Form  onSubmit={handleLogin}>
-      <h2 style={{color: "#333435", fontFamily:"Noto Sans', sans-serif", fontWeight:"600", fontSize:"2rem"}}>INICIO DE SESIÓN</h2>
+      <h2 style={{color: "#333435", fontFamily:"Noto Sans', sans-serif", fontWeight:"600", fontSize:"2rem"}}>Inicio de sesión</h2>
       <Input 
       type="email" 
       placeholder="Correo electronico"
@@ -40,6 +41,7 @@ const FormLogin = () => {
       value={password}
       onChange={handleInputChange} 
       />
+      <Link style={{fontSize:"0.8rem", textAlign:"right", padding:"0px 20px"}} to="/register">¿No tienes una cuenta?, regístrate aquí</Link>
       <Button type="submit">Ingresar</Button>
     </Form>
     <Button

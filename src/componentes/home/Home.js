@@ -5,8 +5,12 @@ import memphis from "../../resources/home-guy.png"
 import AboutUs from './AboutUs';
 import HowDoesItWorks from './HowDoesItWorks';
 import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
     return (
         <>
         <div className='main-home' id='inicio'>
@@ -21,7 +25,7 @@ const Home = () => {
                         </button>
                     </div>
                     <div className='buttons'>
-                        <button>Ver aliados</button>
+                        <button onClick={()=> navigate("/listado")}>Ver aliados</button>
                         <button>Ser un aliado</button>
                     </div>
                 </div>

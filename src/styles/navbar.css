@@ -18,7 +18,7 @@
     padding: 0 40px;
 }
 
-.nav-main > img, a, h5 {
+.nav-main > img, a {
     cursor: pointer;
     text-decoration: none;
     color: #087DA1;
