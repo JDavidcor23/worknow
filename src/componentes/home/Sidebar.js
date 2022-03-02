@@ -38,7 +38,6 @@ const Sidebar = () => {
                 <li>
                   <Link to="/registro">Registrarse</Link>
                 </li>
-                <li>¿Por qué elegirnos?</li>
                 <li>Preguntas frecuentes</li>
                 <li>Contáctanos</li>
             </nav>
