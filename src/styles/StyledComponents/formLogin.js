@@ -23,6 +23,7 @@ export const Button = styled.button`
     font-size: 1.2rem;
     background: #007a9f;
     color: white;
+    cursor:pointer;
     border-radius: 20px;
     width: 100%;
     font-family: 'Noto Sans', sans-serif;
