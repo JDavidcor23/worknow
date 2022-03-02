@@ -19,20 +19,23 @@ const FromAliado = () => {
     initialValues: {
       uid: id,
       url: "",
-      name: "",
+      namejob: "",
       description: "",
-      category: "",
       city: "",
       country: "",
+      identification_number:"",
+      profesion:"",
+      identification_type:""
     },
     onSubmit: (data) => {
-      dispatch(registroJobsAsincrono(data));
-      Swal.fire({
-        icon: "success",
-        title: "Producto Guardado exitosamente",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      console.log(data)
+     dispatch(registroJobsAsincrono(data));
+     Swal.fire({
+       icon: "success",
+       title: "Producto Guardado exitosamente",
+       showConfirmButton: false,
+       timer: 1500,
+     });
     },
   });
   const handlePictureClick = () => {
@@ -54,38 +57,71 @@ const FromAliado = () => {
     formik.values.url = url;
   };
   return (
-    <FormAli action="">
+    <FormAli action="" onSubmit={formik.handleSubmit}>
       <Label htmlFor="">Número de identificación</Label>
       <div style={{ display: "flex", width: "100%" }}>
-        <Select defaultValue={"DEFAULT"}>
+        <Select 
+        defaultValue={"DEFAULT"} 
+        name="identification_type"
+        onChange={formik.handleChange}
+        required
+        >
           <option value="DEFAULT" disabled>
             Tipo
           </option>
-          <option value="grapefruit">C.C</option>
-          <option value="lime">NIT</option>
+          <option value="C.C">C.C</option>
+          <option value="C.E">C.E</option>
+          <option value="NIT">NIT</option>
           <option value="P.E.P">P.E.P</option>
-          <option value="mango">Mango</option>
         </Select>
-        <Input type="number" style={{ margin: "0 0 0 20px", width: "100%" }} />
+        <Input 
+        type="number" 
+        name="identification_number"
+        required
+        onChange={formik.handleChange}
+        style={{ margin: "0 0 0 20px", width: "100%" }} />
       </div>
       <Label htmlFor="">Escoge una profesión</Label>
-      <Select defaultValue={"DEFAULT"}>
+      <Select defaultValue={"DEFAULT"} 
+      name="profesion"
+      required
+      onChange={formik.handleChange}
+      >
         <option value="DEFAULT" disabled>
           Elige tu opción
         </option>
         <option value="Obrero">Obrero</option>
         <option value="Panadero">Panadero</option>
         <option value="Carpintero">Carpintero</option>
-        <option value="mango">Chef</option>
+        <option value="Chef">Chef</option>
       </Select>
       <Label htmlFor="">Pais</Label>
-      <Input type="text" />
+      <Input 
+      type="text" 
+      name="country"
+      required
+      onChange={formik.handleChange}
+      />
       <Label htmlFor="">Ciudad</Label>
-      <Input type="text" />
+      <Input 
+      type="text" 
+      required
+      name="city" 
+      onChange={formik.handleChange}
+      />
       <Label htmlFor="">Nombre de tu trabajo</Label>
-      <Input type="text" />
+      <Input 
+      type="text" 
+      name="namejob"
+      required
+      onChange={formik.handleChange}
+      />
       <Label htmlFor="">Descripción de tu trabajo</Label>
-      {/* <TextArea></TextArea> */}
+       <TextArea 
+       required
+       name="description"
+       onChange={formik.handleChange}
+       ></TextArea> 
       <Label htmlFor="">Añade 3 imagenes</Label>
       <input
         id="fileSelector"

@@ -6,10 +6,17 @@ export const DivAliado = styled.div`
     flex-direction: column;
     width: 100%;
     justify-content: center;
-`
+    @media screen and (min-width: 700px) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    `
 export const ImgDiv = styled.img`
     object-fit: contain;
     height: 60vh;
+    @media screen and (min-width: 700px) {
+        height: 100vh;
+    }
 `
 export const FormAli = styled.form`
     display: flex;
