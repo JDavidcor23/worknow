@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
     display: flex;
+    font-family: 'Noto Sans', sans-serif;
     width: 90%;
     flex-direction: column;
     justify-content: center;
@@ -21,9 +22,19 @@ export const Input = styled.input`
 export const Button = styled.button`
     padding: 10px;
     border: none;
+    margin: 20px 0;
     font-size: 1.3rem;
     background: #007a9f;
     color: white;
+    cursor:pointer;
     border-radius: 20px;
 `
-
+export const TextArea = styled.textarea`
+    height: 200px;
+    font-size: 1.3rem;
+    border: none;
+    margin:20px 0;
+    background: #e8f3ff;
+    border-radius: 20px;
+    padding: 10px;
+`

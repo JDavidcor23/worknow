@@ -13,7 +13,7 @@ const Home = () => {
                     <p>Somos la red que te conecta con el mejor aliado</p>
                     <div className='search'>
                         <input placeholder='Busca tu aliado'/>
-                        <button><i class="fas fa-search"></i>
+                        <button><i className="fas fa-search"></i>
                         </button>
                     </div>
                     <div className='buttons'>
