@@ -78,10 +78,14 @@ const FromAliado = () => {
         <option value="Carpintero">Carpintero</option>
         <option value="mango">Chef</option>
       </Select>
+      <Label htmlFor="">Pais</Label>
+      <Input type="text" />
+      <Label htmlFor="">Ciudad</Label>
+      <Input type="text" />
       <Label htmlFor="">Nombre de tu trabajo</Label>
       <Input type="text" />
       <Label htmlFor="">Descripción de tu trabajo</Label>
-      <TextArea></TextArea>
+      {/* <TextArea></TextArea> */}
       <Label htmlFor="">Añade 3 imagenes</Label>
       <input
         id="fileSelector"
