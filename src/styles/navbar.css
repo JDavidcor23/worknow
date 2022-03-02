@@ -4,15 +4,15 @@
     background-color: rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
-    padding: 15px 0;
+    padding: 10px 0;
     box-shadow: rgb(177, 177, 177) 1px 1px 5px;
+    font-size: 1rem;
 
 }
 
 .nav-main{
     display: flex;
     color: #087DA1;
-    font-size: 18px;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;

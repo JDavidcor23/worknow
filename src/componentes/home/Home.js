@@ -19,7 +19,7 @@ const Home = () => {
                 <div className='content'>
                     <h1 className='main-title'>Conecta con nuestros aliados Freelance</h1>
                     <p>Somos la red que te conecta con el mejor aliado</p>
-                    <div className='search'>
+                    <div className='search-home'>
                         <input placeholder='Busca tu aliado'/>
                         <button><i className="fas fa-search"></i>
                         </button>

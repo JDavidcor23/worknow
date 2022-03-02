@@ -1,24 +1,22 @@
+.list-main{
+    height: 100vh;
+}
+
 .list-container{
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 20% 20% 60%;
-    grid-template-areas: 
-    "search orderby"
-    "search cards"
-    ". cards"
-    ;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "search cards cards";
     background-color: #E8F3FF;
-    height: 100vh;
+    min-height: calc(100% - 75px);
+    padding: 3.6rem;
+    justify-items: center;
 }
 
 .cards{
     grid-area: cards;
 }
 
-.orderby{
-    grid-area: orderby;
-}
-
 .search{
     grid-area: search;
+    margin: auto;
 }
