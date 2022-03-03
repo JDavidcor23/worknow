@@ -7,6 +7,15 @@ export const Form = styled.form`
     text-align: center;
     color:#529eb5;
     gap: 20px;
+    @media screen and (min-width: 700px) {
+        margin: 20px 0;
+        width: 350px;
+        background: red;
+    }
+    @media screen and (max-width: 800px) {
+        width: 200px;
+        background: red;
+    }
 `
 export const Input = styled.input`
     height: 35px;
@@ -23,6 +32,7 @@ export const Button = styled.button`
     font-size: 1.2rem;
     background: #007a9f;
     color: white;
+    cursor:pointer;
     border-radius: 20px;
     width: 100%;
     font-family: 'Noto Sans', sans-serif;
@@ -31,3 +41,12 @@ export const Button = styled.button`
 `
 
 
+export const TextArea = styled.textarea`
+    height: 200px;
+    font-size: 1.3rem;
+    border: none;
+    margin:20px 0;
+    background: #e8f3ff;
+    border-radius: 20px;
+    padding: 10px;
+`
