@@ -1,12 +1,10 @@
 import React from 'react';
 import {Form, Input, Button} from '../../styles/StyledComponents/formLogin'
 import Swal from 'sweetalert2'
-import {Select} from "../../styles/StyledComponents/FormAliado";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from "react-redux";
 import {registroEmailPasswordNombre} from '../../actions/actionRegister';
 import { Link } from 'react-router-dom';
-import { registroUsersAsincrono } from '../../actions/actionUser';
 const FormRegister = () => {
   const dispatch = useDispatch();
 

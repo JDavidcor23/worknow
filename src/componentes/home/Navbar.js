@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "../../resources/W.png";
 import "../../styles/navbar.css";
 import Sidebar from "./Sidebar";
-import { useDispatch } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { logout } from "../../actions/actionLogin";
 const Navbar = () => {
-  const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   React.useEffect(() => {

@@ -1,5 +1,5 @@
 import React from "react";
-import FromAliado from "./FromAliado";
+import FromAliado from "./FromAliado"; 
 import {DivAliado, ImgDiv} from '../../styles/StyledComponents/FormAliado'
 const Aliado = () => {
   return (
