@@ -11,3 +11,7 @@ export const typesjobs = {
 export const jobsList = {
     watchjobs:"watchjobs"
 }
+export const user ={
+    registeruserdb:"registeruserdb",
+    listuser:"listuser"
+}

@@ -5,6 +5,7 @@
     position: absolute;
     top: 5px;
     right: 0;
+    z-index: 10;
 }
 
 .options{
@@ -29,7 +30,7 @@
 
 .menu {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 40px;
     cursor: pointer;
 }

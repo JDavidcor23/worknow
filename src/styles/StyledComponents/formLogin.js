@@ -7,15 +7,6 @@ export const Form = styled.form`
     text-align: center;
     color:#529eb5;
     gap: 20px;
-    @media screen and (min-width: 700px) {
-        margin: 20px 0;
-        width: 350px;
-        background: red;
-    }
-    @media screen and (max-width: 800px) {
-        width: 200px;
-        background: red;
-    }
 `
 export const Input = styled.input`
     height: 35px;
@@ -24,6 +15,7 @@ export const Input = styled.input`
     border-radius: 25px;
     width: 485px;
     color:black;
+    font-size:1.2rem;
     background:#e9f3ff;
 `
 export const Button = styled.button`

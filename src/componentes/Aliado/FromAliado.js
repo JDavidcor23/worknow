@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import {
   FormAli,
   Label,
   Input,
   Select,
+  DivImages,
+  ConntainerImages
 } from "../../styles/StyledComponents/FormAliado";
 import { Button, TextArea } from "../../styles/StyledComponents/formLogin";
 import { fileUpload } from "../../helpers/FileUpload";
@@ -14,52 +16,86 @@ import { useSelector } from "react-redux";
 import { registroJobsAsincrono } from "../../actions/actionJobs";
 const FromAliado = () => {
   const { id } = useSelector((store) => store.login);
+  const [img1, setImg1] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
+  const [img2, setImg2] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
+  const [img3, setImg3] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      uid: id,
-      url: "",
+      uid: id, 
+      url1: "",
+      url2: "",
+      url3: "",
       namejob: "",
       description: "",
       city: "",
       country: "",
       identification_number:"",
       profesion:"",
+      valoration:1.0,
       identification_type:""
     },
     onSubmit: (data) => {
-      console.log(data)
-     dispatch(registroJobsAsincrono(data));
-     Swal.fire({
-       icon: "success",
-       title: "Producto Guardado exitosamente",
-       showConfirmButton: false,
-       timer: 1500,
-     });
+      dispatch(registroJobsAsincrono(data));
+      Swal.fire({
+        icon: "success",
+        title: "Producto Guardado exitosamente",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     },
   });
-  const handlePictureClick = () => {
-    document.querySelector("#fileSelector").click();
+  const handlePictureClick1 = () => {
+    document.querySelector("#fileSelector1").click();
+  };
+  const handlePictureClick2 = () => {
+    document.querySelector("#fileSelector2").click();
+  };
+  const handlePictureClick3 = () => {
+    document.querySelector("#fileSelector3").click();
   };
 
-  const handleFileChanged = (e) => {
-    const url = [];
-    for (let i = 0; i < 3; i++) {
-      fileUpload(e.target.files[i])
-        .then((response) => {
-          url.push(response);
-          console.log(url);
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    }
-    formik.values.url = url;
+  const handleFileChanged1 = async(e) => {
+    let url = ""
+  fileUpload(e.target.files[0])
+    .then((response) => {
+      url = response
+      setImg1(url)
+      formik.values.url1 = url
+      console.log(url)
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  };
+  const handleFileChanged2 = async(e) => {
+    let url = ""
+  fileUpload(e.target.files[0])
+    .then((response) => {
+      url = response
+      setImg2(url)
+      formik.values.url2 = url
+      console.log(url)
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  };
+  const handleFileChanged3 = async(e) => {
+    let url = ""
+  fileUpload(e.target.files[0])
+    .then((response) => {
+      url = response
+      setImg3(url)  
+      formik.values.url3= url
+      console.log(url)
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
   };
   return (
     <FormAli action="" onSubmit={formik.handleSubmit}>
-      <Label htmlFor="">Número de identificación</Label>
-      <div style={{ display: "flex", width: "100%" }}>
         <Select 
         defaultValue={"DEFAULT"} 
         name="identification_type"
@@ -77,11 +113,9 @@ const FromAliado = () => {
         <Input 
         type="number" 
         name="identification_number"
+        placeholder="Número de identificación"
         required
-        onChange={formik.handleChange}
-        style={{ margin: "0 0 0 20px", width: "100%" }} />
-      </div>
-      <Label htmlFor="">Escoge una profesión</Label>
+        onChange={formik.handleChange} />
       <Select defaultValue={"DEFAULT"} 
       name="profesion"
       required
@@ -95,65 +129,118 @@ const FromAliado = () => {
         <option value="Carpintero">Carpintero</option>
         <option value="Chef">Chef</option>
       </Select>
-      <Label htmlFor="">Pais</Label>
       <Input 
       type="text" 
       name="country"
       required
+      placeholder="Pais"
       onChange={formik.handleChange}
       />
-      <Label htmlFor="">Ciudad</Label>
       <Input 
       type="text" 
       required
       name="city" 
+      placeholder="Ciudad"
       onChange={formik.handleChange}
       />
-      <Label htmlFor="">Nombre de tu trabajo</Label>
       <Input 
       type="text" 
       name="namejob"
       required
+      placeholder="Nombre de tu trabajo"
       onChange={formik.handleChange}
       />
-      <Label htmlFor="">Descripción de tu trabajo</Label>
+            <Label htmlFor="">Añade 3 imagenes</Label>
+      <input
+        id="fileSelector1"
+        type="file"
+        className="form-control "
+        placeholder="url image"
+        name="url1"
+        style={{ display: "none" }}
+        onChange={handleFileChanged1}
+        required
+      />
+      <input
+        id="fileSelector2"
+        type="file"
+        className="form-control "
+        placeholder="url image"
+        name="url2"
+        style={{ display: "none" }}
+        onChange={handleFileChanged2}
+        required
+      />
+      <input
+        id="fileSelector3"
+        type="file"
+        className="form-control "
+        placeholder="url image"
+        name="url3"
+        style={{ display: "none" }}
+        onChange={handleFileChanged3}
+        required
+      />
+      <DivImages>
+        <ConntainerImages>
+            <img
+            style={{margin:"10px"}}
+            src={img1}
+            alt=""
+            width="150px"
+            height="150px"
+          />
+          <Button
+            className="btn btn-dark"
+            onClick={handlePictureClick1}
+            type="button"
+            style={{width: "150px"}}
+          >
+            Imagen
+          </Button>
+        </ConntainerImages>
+        <ConntainerImages>
+          <img
+              style={{margin:"10px"}}
+              src={img2}
+              alt=""
+              width="150px"
+              height="150px"
+            />
+          <Button
+            className="btn btn-dark"
+            onClick={handlePictureClick2}
+            type="button"
+            style={{width: "150px"}}
+          >
+            Imagen
+          </Button>
+        </ConntainerImages>
+        <ConntainerImages>
+          <img
+          style={{margin:"10px"}}
+          src={img3}
+          alt=""
+          width="150px"
+          height="150px"
+        />
+        <Button
+        className="btn btn-dark"
+        onClick={handlePictureClick3}
+        type="button"
+        style={{width: "150px"}}
+      >
+        Imagen
+      </Button>
+        </ConntainerImages>
+      </DivImages>
        <TextArea 
        required
        name="description"
        onChange={formik.handleChange}
+       placeholder="Descripción de tu trabajo"
        ></TextArea> 
-      <Label htmlFor="">Añade 3 imagenes</Label>
-      <input
-        id="fileSelector"
-        type="file"
-        className="form-control "
-        placeholder="url image"
-        name="url"
-        style={{ display: "none" }}
-        onChange={handleFileChanged}
-        multiple
-        required
-      />
-      <button
-        className="btn btn-dark"
-        onClick={handlePictureClick}
-        type="button"
-      >
-        Imagen
-      </button>
-      {/* <img
-        src="https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png"
-        alt=""
-      />
-      <img
-        src="https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png"
-        alt=""
-      />
-      <img
-        src="https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png"
-        alt=""
-      /> */}
-      <Button type="submit">Subir</Button>
+      <Button type="submit" style={{margin:"20px 0 0 0"}}>Subir</Button>
     </FormAli>
   );
 };

@@ -10,7 +10,6 @@ export const registerReducer = (state = {}, action) => {
            password: action.payload.password,
            name: action.payload.name
         }
-
         default:
           return state;
     }

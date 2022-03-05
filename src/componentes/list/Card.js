@@ -8,11 +8,11 @@ const Card = ({data}) => {
     return (
         <div className='card-cont'>
             <picture className='card-img'>
-            <img className='image' src={data.image} alt=''/>
+            <img className='image' src={data.url2} alt=''/>
             </picture>
-            <p>{data.service}</p>
+            <p>{data.namejob}</p>
             <p>Valoracion</p>
-            <p>{data.rate}</p>
+            <p>{data.valoration}</p>
         </div>
     )
 }

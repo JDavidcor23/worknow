@@ -2,32 +2,32 @@ import React from 'react'
 import Card from './Card'
 import OrderBy from "./OrderBy"
 import "../../styles/cards.css"
-import { useState } from 'react'
+import { useDispatch } from "react-redux";
 import { useEffect } from 'react'
-
+import { jobsListFilterASincrono } from '../../actions/actionJobsList'
+import { useSelector } from "react-redux";
 const Cards = () => {
-
-    const url = "http://localhost:4000/services"
-    const [cardData, setCardData] = useState([])
-
-    const getData = async() => { 
-        const resp = await fetch(url)
-        const data = await resp.json()
-        setCardData(data) 
-    }
-
+    const dispatch = useDispatch()
+    const {jobsList} = useSelector((state) => state.listjobs);
+    
     useEffect(() => {
-        getData()
+        dispatch(jobsListFilterASincrono())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (
+        <>
+        {jobsList !== undefined &&
         <div className='cards-container'>
-            <OrderBy/>
-            { cardData.map(card => 
-            <Card data={card}/>
-            )
+
+                <OrderBy/>
+                { jobsList.map(card => 
+                <Card data={card} key={card.id}/>
+                )
             }
         </div>
+        } 
+        </>
     )
 }
 

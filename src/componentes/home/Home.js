@@ -17,7 +17,7 @@ const Home = () => {
             <Navbar/>
             <main className='home-cont'>
                 <div className='content'>
-                    <h1 className='main-title'>Conecta con nuestros aliados Freelance</h1>
+                    <h1 className='main-title'>Conecta con nuestros aliados.</h1>
                     <p>Somos la red que te conecta con el mejor aliado</p>
                     <div className='search-home'>
                         <input placeholder='Busca tu aliado'/>

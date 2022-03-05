@@ -25,3 +25,28 @@
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
 }
+li:hover {
+    box-shadow: #d2dadf 2px 2px 5px;
+    cursor: pointer;
+    transition: ease-out all 0.2s;
+    transform: scale(1.1);
+    color: #087DA1;
+}
+li {
+    list-style: none;
+    padding: 10px;
+    width: 100%;
+}
+.perfil{
+    position: absolute;
+    background: white;
+    box-shadow: thistle -1px 5px 10px;
+    padding: 20px;
+    right: 2px;
+    width: 100px;
+}
+.perfil> ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
