@@ -1,12 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import "../../styles/card.css"
 
-const Card = ({data}) => {
+const Card = ({data, id}) => {
 
-    console.log(data)
+    const navigate = useNavigate()
 
     return (
-        <div className='card-cont'>
+        <div className='card-cont' onClick={()=> navigate("/detalle-aliado")} >
             <picture className='card-img'>
             <img className='image' src={data.image} alt=''/>
             </picture>

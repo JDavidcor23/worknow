@@ -24,7 +24,7 @@ const Cards = () => {
         <div className='cards-container'>
             <OrderBy/>
             { cardData.map(card => 
-            <Card data={card}/>
+            <Card id={card.id} key={card.id} data={card}/>
             )
             }
         </div>

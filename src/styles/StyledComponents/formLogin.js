@@ -10,11 +10,9 @@ export const Form = styled.form`
     @media screen and (min-width: 700px) {
         margin: 20px 0;
         width: 350px;
-        background: red;
     }
     @media screen and (max-width: 800px) {
         width: 200px;
-        background: red;
     }
 `
 export const Input = styled.input`
