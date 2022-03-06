@@ -26,7 +26,9 @@ const Sidebar = () => {
                 <img onClick={() => setisClicked(!isClicked)} src={menu} style={{width:"40px", height: "40px"}} alt=''/>
             </div>
             {
-                isClicked ? <nav className='options'>
+            isClicked && 
+            <nav>
+                <ul className='options'>
                 {isLoggedIn 
                 ? 
                 <li onClick={()=>dispatch(logout())}>Cerrar sesión</li>
@@ -40,9 +42,8 @@ const Sidebar = () => {
                 </li>
                 <li>Preguntas frecuentes</li>
                 <li>Contáctanos</li>
+                </ul>
             </nav>
-            :
-            ""
             }
         </div>
     )
