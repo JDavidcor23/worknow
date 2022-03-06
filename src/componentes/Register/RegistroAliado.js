@@ -1,10 +1,12 @@
 import React from 'react';
 import {Form, Input, Button} from '../../styles/StyledComponents/formLogin'
 import Swal from 'sweetalert2'
+import {Select} from "../../styles/StyledComponents/FormAliado";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from "react-redux";
 import {registroEmailPasswordNombre} from '../../actions/actionRegister';
 import { Link } from 'react-router-dom';
+import { registroUsersAsincrono } from '../../actions/actionUser';
 const FormRegister = () => {
   const dispatch = useDispatch();
 
@@ -13,12 +15,20 @@ const FormRegister = () => {
       email: '',
       pass1: '',
       pass2: '',
+      identificatión:"",
+      phone:"",
+      city:"",
+      type:"",
   });
   const { 
         name, 
         email, 
         pass1, 
         pass2, 
+        identificatión, 
+        type, 
+        phone,
+        city
       } = formValues;
 
   const handleRegistro = (e) => {
@@ -30,10 +40,17 @@ const FormRegister = () => {
         text: 'Las contraseñas no coinciden',
       })
     }else{
-
+      const newUser={
+        name, 
+        email, 
+        identificatión, 
+        type, 
+        phone,
+        city
+      }
       // console.log(newUser)
-      dispatch(registroEmailPasswordNombre(email,pass1,name))
-
+      // dispatch(registroEmailPasswordNombre(email,pass1,name, newUser))
+      dispatch(registroUsersAsincrono(newUser))
     }
 }
     return (
@@ -50,6 +67,42 @@ const FormRegister = () => {
         value={email}
         onChange={handleInputChange}
         />
+        <div style={{display:"flex", justifyContent:"space-between"}}>
+        <Select 
+        defaultValue={"DEFAULT"} 
+        name="type"
+        value={type}
+        onChange={handleInputChange}
+        required
+        >
+          <option value="DEFAULT" disabled>
+            Tipo
+          </option>
+          <option value="C.C">C.C</option>
+          <option value="C.E">C.E</option>
+          <option value="NIT">NIT</option>
+          <option value="P.E.P">P.E.P</option>
+        </Select>
+        <Input type="number" 
+         placeholder="identificación"
+         name="identificatión"
+         value={identificatión}
+         onChange={handleInputChange}
+         style={{width:"75%"}}
+         />
+        </div>
+        <Input type="number" 
+         placeholder="Número de telefono"
+         name="phone"
+         value={phone}
+         onChange={handleInputChange}
+         />
+        <Input type="text" 
+         placeholder="Ciudad"
+         name="city"
+         value={city}
+         onChange={handleInputChange}
+         />
         <Input type="password" 
          placeholder="Repite la contraseña"
          name="pass1"

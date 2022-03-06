@@ -1,4 +1,4 @@
-import {typespjobs} from '../types/types'
+import {typesjobs} from '../types/types'
 
 const initialState = {
     jobs: []
@@ -6,15 +6,15 @@ const initialState = {
 
 export const registerJobsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case typespjobs.registerjobs:
+        case typesjobs.registerjobs:
             return {
                 jobs: [action.payload]
             }
-        case typespjobs.listjobs:
+        case typesjobs.listjobs:
             return {
                 jobs: [...action.payload]
             }
-        case typespjobs.deletejobs:
+        case typesjobs.deletejobs:
             return {
                 jobs: state.jobs.filter(pro => pro.name !== action.payload)
             }
