@@ -55,7 +55,9 @@ const Navbar = () => {
                     marginTop: "10px"
                 }}>
                     <li>Cerrar seción</li>
-                    <li>Editar perfil</li>
+                    <li>
+                      <Link to="/perfil">Editar perfil</Link>
+                    </li>
                   </ul>
               )}
             </div>
