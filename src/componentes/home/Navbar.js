@@ -50,12 +50,13 @@ const Navbar = () => {
                 />
               </button>
               {open && (
-                <div className="perfil">
-                  <ul>
+                  <ul className='options' style={{position: "absolute",
+                    right: "1px",
+                    marginTop: "10px"
+                }}>
                     <li>Cerrar seción</li>
                     <li>Editar perfil</li>
                   </ul>
-                </div>
               )}
             </div>
           )}
