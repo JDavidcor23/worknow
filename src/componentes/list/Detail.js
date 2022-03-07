@@ -3,7 +3,6 @@ import Navbar from '../home/Navbar'
 import picture from "../../resources/picture.png"
 import "../../styles/detail.css"
 import Footer from '../home/Footer'
-import photo from "../../resources/painter.jpg"
 import contact from "../../resources/amigos.png"
 import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
