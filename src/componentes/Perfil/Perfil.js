@@ -1,20 +1,27 @@
 import React, { useState } from "react";
-import FromAliado from "../Aliado/FromAliado";
-import { FormAli, Input } from "../../styles/StyledComponents/FormAliado";
+import {
+  Container,
+  ContainerImg,
+  FormEdit,
+  InputEdit,
+} from "../../styles/StyledComponents/StyledPerfil";
 import { Button } from "../../styles/StyledComponents/formLogin";
 import { fileUpload } from "../../helpers/FileUpload";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import Navbar from "../home/Navbar";
+import Footer from "../home/Footer";
 const Perfil = () => {
-  const { id } = useSelector((store) => store.login);
+  const { id, name } = useSelector((store) => store.login);
   const [img1, setImg1] = useState(
-    "https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png"
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
   const formik = useFormik({
     initialValues: {
       uid: id,
-      number: "",
+      name:name,
+      url:"",
       phone: "",
       country: "",
       city: "",
@@ -31,7 +38,7 @@ const Perfil = () => {
     },
   });
   const handlePictureClick1 = () => {
-    document.querySelector("#fileSelector1").click();
+    document.querySelector("#fileSelector").click();
   };
   const handleFileChanged1 = async (e) => {
     let url = "";
@@ -39,7 +46,7 @@ const Perfil = () => {
       .then((response) => {
         url = response;
         setImg1(url);
-        formik.values.url1 = url;
+        formik.values.url = url;
         console.log(url);
       })
       .catch((error) => {
@@ -47,39 +54,68 @@ const Perfil = () => {
       });
   };
   return (
-    <div>
-      <FormAli>
-        <div>
-          <input
-            id="fileSelector1"
-            type="file"
-            className="form-control "
-            placeholder="url image"
-            name="url1"
-            style={{ display: "none" }}
-            onChange={handleFileChanged1}
-            required
+    <>
+      <Navbar />
+      <Container>
+        <FormEdit onSubmit={formik.handleSubmit}>
+          <ContainerImg>
+            <InputEdit
+              id="fileSelector"
+              type="file"
+              className="form-control "
+              placeholder="url image"
+              name="url"
+              style={{ display: "none" }}
+              onChange={handleFileChanged1}
+              required
+            />
+            <img
+              src={img1}
+              alt=""
+              width="200px"
+              height="200px"
+              style={{ borderRadius: "50%" }}
+            />
+            <Button
+              className="btn btn-dark"
+              onClick={handlePictureClick1}
+              type="button"
+              style={{ width: "150px", marginTop: "20px" }}
+            >
+              Sube tu foto
+            </Button>
+          </ContainerImg>
+          <InputEdit type="text" 
+          placeholder="Nombre" 
+          name="name" 
+          value={formik.values.name} 
+          onChange={formik.handleChange}
           />
-          <img src={img1} alt="" />
-          <Button
-            className="btn btn-dark"
-            onClick={handlePictureClick1}
-            type="button"
-            style={{ width: "150px" }}
-          >
-            Sube tu foto
-          </Button>
-        </div>
-        <div>
-          <Input type="text" placeholder="Nombre" name="number" />
-          <Input type="number" placeholder="Numero de telefono" name="phone" />
-          <Input type="text" placeholder="País" name="country" />
-          <Input type="text" placeholder="ciudad" name="city" />
-          <Button>Guardar</Button>
+          <InputEdit
+            type="number"
+            placeholder="Teléfono ejemplo(+57 123456789)"
+            name="phone"
+            onChange={formik.handleChange}
+
+          />
+          <InputEdit 
+          type="text" 
+          placeholder="País" 
+          name="country" 
+          onChange={formik.handleChange}
+          />
+          <InputEdit 
+          type="text" 
+          placeholder="ciudad" 
+          name="city" 
+          onChange={formik.handleChange}
+          />
+          <Button style={{ width: "90%", maxWidth: "450px" }}>Guardar</Button>
           {/* <FromAliado /> */}
-        </div>
-      </FormAli>
-    </div>
+        </FormEdit>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
