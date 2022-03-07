@@ -67,10 +67,12 @@ const Navbar = () => {
                     right: "1px",
                     marginTop: "10px"
                 }}>
-                    <li>Cerrar seción</li>
+                    <li>Cerrar sesión</li>
                     <li>
-                      <Link to="/perfil">Editar perfil</Link>
-                    </li>
+                      <Link to="/perfil">
+                        Editar perfil
+                      </Link>
+                      </li>
                   </ul>
               )}
             </div>

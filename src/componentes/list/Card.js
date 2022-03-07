@@ -12,7 +12,7 @@ const Card = ({data, id}) => {
             <img className='image' src={data.url2} alt=''/>
             </picture>
             <p>{data.namejob}</p>
-            <p>Valoracion</p>
+            <p>Valoración</p>
             <p>{data.valoration}</p>
         </div>
     )

@@ -1,11 +1,11 @@
 import React from 'react'
+import process from "../../resources/proceso.png"
+import "../../styles/firstStep.css"
 
 const FirstStep = () => {
     return (
         <div className='process-cont'>
-            <h5>Proceso de aliado</h5>
-            <main>
-                <div>
+            <div>
                     servicio a contratar
                 </div>
                 <div>
@@ -14,7 +14,6 @@ const FirstStep = () => {
                 <div>
                     finalizar servicio
                 </div>
-            </main>
         </div>
     )
 }
