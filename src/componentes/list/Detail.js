@@ -6,12 +6,14 @@ import Footer from '../home/Footer'
 import photo from "../../resources/painter.jpg"
 import contact from "../../resources/amigos.png"
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const Detail = () => {
     const [user, setUser] = useState([])
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const number =573003073883
 
     const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
@@ -26,9 +28,20 @@ const Detail = () => {
     useEffect(() => {
         filterDatabyId(id)
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            if (user?.uid) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+        })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     console.log(user)
 
+
+    const navigate = useNavigate()
     
     return (
         <>
@@ -41,7 +54,11 @@ const Detail = () => {
                 <img src={user.url2} alt=''/>
                 </div>
                 <p>Calificación: {user.valoration}</p>
-                <button>Contratar</button>
+                {
+                    isLoggedIn ? 
+                        <button onClick={()=> navigate("/servicio-contratar")}>Contratar</button>
+                    : <Link style={{fontSize:"0.8rem"}} to="/ingresar">Inicia sesión para contratar</Link>
+                }
             </div>
             <div className='aliado-info'>
                 <div className='images-aliado'>
