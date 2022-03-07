@@ -36,7 +36,7 @@ function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path='/detalle-aliado' element={<Detail/>}/>
+        <Route path='/detalle-aliado/:id' element={<Detail/>}/>
         <Route path="/como-funciona" element={<HowDoesItWorks/>}/>
         <Route path="/listado" element={<List/>}/>
         <Route path="/ingresar" element={

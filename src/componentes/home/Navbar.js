@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../resources/W.png";
 import "../../styles/navbar.css";
 import Sidebar from "./Sidebar";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
 const Navbar = () => {
+
+  const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+
   React.useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -17,6 +22,7 @@ const Navbar = () => {
       }
     });
   }, [setIsLoggedIn]);
+  
   return (
     <div className="nav-cont">
       <nav className="navbar">
@@ -24,8 +30,15 @@ const Navbar = () => {
           <Link to="/">
             <img src={logo} alt="" style={{ width: "40px", height: "40px" }} />
           </Link>
-          <a href="#como-funciona">CÓMO FUNCIONA</a>
-          <a href="#nosotros">NOSOTROS</a>
+          {
+            location.pathname === "/" 
+            ?
+            <>
+            <a href="#como-funciona">CÓMO FUNCIONA</a>
+            <a href="#nosotros">NOSOTROS</a>
+            </>
+            : ""
+          }
           {isLoggedIn && (
             <div
               style={{

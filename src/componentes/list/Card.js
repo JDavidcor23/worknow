@@ -7,7 +7,7 @@ const Card = ({data, id}) => {
     const navigate = useNavigate()
 
     return (
-        <div className='card-cont' onClick={()=> navigate("/detalle-aliado")} >
+        <div className='card-cont' onClick={()=> navigate(`/detalle-aliado/${id}`)} >
             <picture className='card-img'>
             <img className='image' src={data.url2} alt=''/>
             </picture>
