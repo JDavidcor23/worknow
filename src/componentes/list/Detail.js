@@ -3,7 +3,6 @@ import Navbar from '../home/Navbar'
 import picture from "../../resources/picture.png"
 import "../../styles/detail.css"
 import Footer from '../home/Footer'
-import photo from "../../resources/painter.jpg"
 import contact from "../../resources/amigos.png"
 import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -47,7 +46,7 @@ const Detail = () => {
         <>
         <Navbar/>
         <div className='details-cont'>
-        <h4 className='conoce'>Conoce a tu aliado</h4>
+        <h4 className='conoce'>Conoce a tu compañero</h4>
         <section className='details'>
             <div className='aliado-contratar'>
                 <div className='picture'>
