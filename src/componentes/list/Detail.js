@@ -4,6 +4,7 @@ import picture from "../../resources/picture.png"
 import "../../styles/detail.css"
 import Footer from '../home/Footer'
 import photo from "../../resources/painter.jpg"
+import { useFormik } from "formik";
 import contact from "../../resources/amigos.png"
 import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -14,13 +15,13 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 const Detail = () => {
     const [user, setUser] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const number =573003073883
+    const [form, setForm] = useState(true);
+    const [whatsapp, setWhatsapp] = useState("")
+    const number =573164257575
 
     const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
 
     let { id } = useParams();
-    console.log(id)
-
     const filterDatabyId = (id) => {
         const filterData = getJobData.filter(user => user.id === id)
         setUser(filterData[0])
@@ -38,9 +39,13 @@ const Detail = () => {
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    console.log(user)
-
-
+    const handleChange = ({target})=>{
+        let newvalue = target.value.replace(/ /g, "%20");
+        setWhatsapp(newvalue)
+    }
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+    }
     const navigate = useNavigate()
     
     return (
@@ -69,11 +74,40 @@ const Detail = () => {
                     <p className='aliado-desc'>{user.description}</p>
                     <p>Tarifa: A convenir</p>
             </div>
-            <div className='contact'>
-                <h4>¡Házle saber a Jesús que quieres contactarte con él!</h4>
+                {form ? 
+                <div className='contact'>
+                <h4 style={{textAlign:"center"}}>¡Házle saber a Jesús que quieres contactarte con él!</h4>
                 <img src={contact} alt="" style={{width:"300px"}} />
-                <a style={{padding:"10px 20px", background:"#0d80a3", color:"white", borderRadius:"10px"}} target="_blank" rel='noreferrer' href={`https://wa.me/${number}?text=Hola,%20me%20gustaría%20conectar%20contigo`}>Conectar por WhatsApp</a>
-            </div>
+                <button style={{padding:"10px 20px", background:"#0d80a3", color:"white", borderRadius:"10px", border:"none", width:"90%", cursor:"pointer", fontSize:"1.2rem"}} target="_blank" rel='noreferrer' onClick={()=>setForm(!form)}>Conectar</button>
+                </div>
+
+                :
+                <div className='contact'>
+                    <form style={{display: "flex",flexDirection: "column"}} onSubmit={handleSubmit}>
+                        {/* <label style={{fontSize: "1.4rem",fontWeight: "bold", margin: "20px 0"}}>Escribe tu nombre</label>
+                        <input type="text" 
+                        style={{borderRadius: "20px",
+                        padding: "5px 5px 5px 10px", 
+                        fontSize:"1.2rem"}}
+                        name="name"
+                        onChange={formik.handleChange}
+                        /> */}
+                        <label style={{fontSize: "1.4rem",fontWeight: "bold", margin: "20px 0", padding: "5px 5px 5px 10px"}}>Envíale un mensaje</label>
+                        <textarea 
+                        style={{borderRadius: "20px",
+                        padding: "5px", height:"200px"}}
+                        name="message"
+                        onChange={handleChange}
+                        >
+                        </textarea>
+                        <button 
+                        type="submit"
+                        style={{padding:"10px 20px", background:"#0d80a3",  borderRadius:"10px", border:"none", cursor:"pointer", fontSize:"1.2rem", margin:"20px 0", width:"100%"}}>
+                            <a style={{color:"white"}}target="_blank" rel='noreferrer' href={`https://wa.me/${number}?text=${whatsapp}`}>Conectar por WhatsApp</a>
+                        </button>
+                    </form>
+                </div>
+                }
         </section>
         </div>
         <Footer/>
