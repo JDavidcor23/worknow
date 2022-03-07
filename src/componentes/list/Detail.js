@@ -47,7 +47,7 @@ const Detail = () => {
         <>
         <Navbar/>
         <div className='details-cont'>
-        <h4 className='conoce'>Conoce a tu aliado</h4>
+        <h4 className='conoce'>Conoce a tu compañero</h4>
         <section className='details'>
             <div className='aliado-contratar'>
                 <div className='picture'>

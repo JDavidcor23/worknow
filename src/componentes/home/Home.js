@@ -20,12 +20,12 @@ const Home = () => {
                     <h1 className='main-title'>Conecta con nuestros compañeros en WorkNow.</h1>
                     <p>Somos la red que te conecta con quien necesitas.</p>
                     <div className='search-home'>
-                        <input placeholder='Busca tu aliado'/>
+                        <input placeholder='Busca tu compañero'/>
                         <button><i className="fas fa-search"></i>
                         </button>
                     </div>
                     <div className='buttons'>
-                        <button onClick={()=> navigate("/listado")}>Ver compañeros</button>
+                        <button onClick={()=> navigate("/listado")}>Ver listado</button>
                         <button onClick={()=> navigate("/aliado")}>Ser un compañero</button>
                     </div>
                 </div>
