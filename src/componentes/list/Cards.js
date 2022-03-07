@@ -22,7 +22,7 @@ const Cards = () => {
 
                 <OrderBy/>
                 { jobsList.map(card => 
-                <Card data={card} key={card.id}/>
+                <Card data={card} key={card.id} id={card.id}/>
                 )
             }
         </div>

@@ -41,7 +41,7 @@ const FormLogin = () => {
       value={password}
       onChange={handleInputChange} 
       />
-      <Link style={{fontSize:"0.8rem", textAlign:"right", padding:"0px 20px"}} to="/register">¿No tienes una cuenta?, regístrate aquí</Link>
+      <Link style={{fontSize:"0.8rem", textAlign:"right", padding:"0px 20px"}} to="/registro">¿No tienes una cuenta?, regístrate aquí</Link>
       <Button type="submit">Ingresar</Button>
     </Form>
     <Button

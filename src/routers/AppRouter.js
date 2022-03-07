@@ -12,6 +12,7 @@ import Home from "../componentes/home/Home"
 import Register from '../componentes/Register/Register';
 import HowDoesItWorks from '../componentes/home/HowDoesItWorks';
 import List from '../componentes/list/List';
+import Detail from '../componentes/list/Detail';
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -35,6 +36,7 @@ function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path='/detalle-aliado/:id' element={<Detail/>}/>
         <Route path="/como-funciona" element={<HowDoesItWorks/>}/>
         <Route path="/listado" element={<List/>}/>
         <Route path="/ingresar" element={
