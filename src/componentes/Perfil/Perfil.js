@@ -7,7 +7,6 @@ import {
 } from "../../styles/StyledComponents/StyledPerfil";
 import { Button } from "../../styles/StyledComponents/formLogin";
 import { fileUpload } from "../../helpers/FileUpload";
-import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Navbar from "../home/Navbar";
@@ -30,7 +29,7 @@ const Perfil = () => {
   })
   const {usuario} = useSelector((store) => store.usuario)
   React.useEffect(() => {
-    if(usuario.url !== undefined){
+    if(usuario.url !== ""){
       setImg1(usuario.url)
       setDatesUser({
           uid:id,
@@ -50,7 +49,7 @@ const Perfil = () => {
   }
   const handleSubmit = (e)=>{
     e.preventDefault();
-     if(usuario.url !== undefined){
+     if(usuario.url !== ""){
        getUserForEdit(usuario.id, datesUser)
        dispatch(listarUserAsincrono(datesUser.uid)) 
        Swal.fire({

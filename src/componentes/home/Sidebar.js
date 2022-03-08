@@ -31,15 +31,18 @@ const Sidebar = () => {
                 <ul className='options'>
                 {isLoggedIn 
                 ? 
-                <li onClick={()=>dispatch(logout())}>Cerrar sesión</li>
+                ""
                 :
+                <>
                 <li>
                     <Link to="/ingresar">Iniciar sesión</Link>
                 </li>
-                }
-                <li>
-                  <Link to="/registro">Registrarse</Link>
+                  <li>
+                <Link to="/registro">Registrarse</Link>
                 </li>
+                </>
+                }
+                
                 <li>Preguntas frecuentes</li>
                 <li>Contáctanos</li>
                 </ul>

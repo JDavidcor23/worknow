@@ -4,10 +4,13 @@ import logo from "../../resources/W.png";
 import "../../styles/navbar.css";
 import Sidebar from "./Sidebar";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/actionLogin";
 
 
 const Navbar = () => {
+
+  const dispatch = useDispatch()
   const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -18,10 +21,9 @@ const Navbar = () => {
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
         setIsLoggedIn(true);
-            if(usuario.url !== undefined){
+            if(usuario.url !== ""){
               setImage(usuario.url)
             }
-
       } else {
         setIsLoggedIn(false);
       }
@@ -78,7 +80,7 @@ const Navbar = () => {
                     right: "1px",
                     marginTop: "10px"
                 }}>
-                    <li>Cerrar sesión</li>
+                    <li onClick={()=>dispatch(logout())}>Cerrar sesión</li>
                     <li>
                       <Link to="/perfil">
                         Mi perfil
