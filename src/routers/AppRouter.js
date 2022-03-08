@@ -1,10 +1,9 @@
 import React from 'react'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Login from '../componentes/Login/Login';
-// import Register from '../Pages/Register/Register';
 import DashboardRoutes from './DashboardRoutes';
 import { PrivateRoute } from "./PrivateRoute";
-import { PublicRoute } from "./PublicRoute";
+import { PublicRoute } from "./PublicRoute"; 
 import { useDispatch } from "react-redux";
 import { getAuth,onAuthStateChanged } from "firebase/auth";
 import { loginSincrono } from '../actions/actionLogin';
@@ -13,6 +12,7 @@ import Register from '../componentes/Register/Register';
 import HowDoesItWorks from '../componentes/home/HowDoesItWorks';
 import List from '../componentes/list/List';
 import Detail from '../componentes/list/Detail';
+import { listarUserAsincrono } from '../actions/actionUser';
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -23,6 +23,7 @@ function AppRouter() {
     onAuthStateChanged(auth, (user) => {
         if(user?.uid){
          setIsLoggedIn(true)
+         dispatch(listarUserAsincrono(user.uid))
          dispatch(loginSincrono(user.uid,user.displayName))
         }
         else{
