@@ -1,20 +1,18 @@
 
 import {user} from '../types/types'
 
-const initialState = {
-    user: []
-}
+const usuario = {}
 
 
-export const userReducer = (state = initialState, action) =>{
+export const userReducer = (state = usuario, action) =>{
     switch (action.type) {
         case user.registeruserdb:
             return {
-                user: [action.payload]
+                usuario: action.payload
             }
         case user.listuser:
             return {
-                user: [...action.payload]
+                usuario: {...action.payload}
             }
         default:
             return state;

@@ -7,8 +7,9 @@ import HowDoesItWorks from './HowDoesItWorks';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
 
+const Home = () => {
+    
     const navigate = useNavigate()
 
     return (

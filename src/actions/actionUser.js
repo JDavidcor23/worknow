@@ -21,18 +21,24 @@ export const registroUsersAsincrono =(User)=>{
 export const listarUserAsincrono = (uid) =>{
     return async(dispatch)=>{
         const q = query(collection(db, "Users"), where("uid", "==", uid));
-        const UserList=[];
+        const UserList={
+            id:"",
+            uid:"",
+            city:"",
+            country:"",
+            name:"",
+            phone:"",
+            url:"",
+        };
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            UserList.push({
-                uid:doc.uid,
-                name: doc.name, 
-                email: doc.email, 
-                identificatión: doc.identificatión, 
-                type: doc.type, 
-                phone: doc.phone,
-                city: doc.city
-            }); 
+                UserList.id = doc.id
+                UserList.uid = doc.uid
+                UserList.city = doc.data().city
+                UserList.country = doc.data().country
+                UserList.name = doc.data().name
+                UserList.phone = doc.data().phone
+                UserList.url = doc.data().url
         })
         dispatch(listarUsersSincrono(UserList))
     }

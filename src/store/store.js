@@ -12,7 +12,7 @@ const reducers = combineReducers({
     login: loginReducer,
     register: registerReducer,
     jobs:registerJobsReducer,
-    user:userReducer,
+    usuario:userReducer,
     listjobs: jobsListReducer
 })
 
