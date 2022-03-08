@@ -20,12 +20,14 @@
     position: absolute;
     right: 50px;
     top: 45px;
+    z-index: 10;
 }
 
 .options > li {
     list-style: none;
     padding: 10px;
     width: 100%;
+    z-index: 10;
 }
 
 .menu {

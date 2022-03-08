@@ -12,11 +12,11 @@ const AboutUs = () => {
             </picture>
             <div className='second-col'>
                 <h2>¿Quiénes somos?</h2>
-                <p>  Somos una plataforma que te conecta con el compañero que más necesitas.</p>
-                <p>Trabajamos de la mano con compañeros que como tú, buscan oportunidades laborales en oficios manuales, ofreciendo sus servicios con nosotros y dejando que las conexiones hablen por ellos. </p>
+                <p>  Somos una plataforma que te conecta con el partner que más necesitas.</p>
+                <p>Trabajamos de la mano con partners que como tú, buscan oportunidades laborales en oficios manuales, ofreciendo sus servicios con nosotros y dejando que las conexiones hablen por ellos. </p>
                 <p>Nuestro medio también facilita la conexión entre quienes ofrecen servicios y quienes necesitan de estos.</p>
-                <h2>¿Qué es un compañero?</h2>
-                <p>Un compañero es esa persona que confía en nuestra red para dar a conocer su trabajo y así incrementar su alcance respecto a los clientes.</p>
+                <h2>¿Qué es un partner?</h2>
+                <p>Un un partner es esa persona que confía en nuestra red para dar a conocer su trabajo y así incrementar su alcance respecto a los clientes.</p>
             </div>
             <picture className="imgLg">
                 <img src={painter} alt='' />

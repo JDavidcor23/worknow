@@ -11,11 +11,13 @@ import { useEffect } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const Detail = () => {
+
     const [user, setUser] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [form, setForm] = useState(true);
     const [whatsapp, setWhatsapp] = useState("")
     const number =573164257575
+    const [isClicked, setIsClicked] = useState(false)
 
     const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
 
@@ -26,6 +28,7 @@ const Detail = () => {
     }
     useEffect(() => {
         filterDatabyId(id)
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
@@ -45,6 +48,11 @@ const Detail = () => {
         e.preventDefault();
     }
     const navigate = useNavigate()
+
+    const handleClick= () => {
+        navigate("/proceso")
+        setIsClicked(true)
+    }
     
     return (
         <>
@@ -59,7 +67,7 @@ const Detail = () => {
                 <p>Calificación: {user.valoration}</p>
                 {
                     isLoggedIn ? 
-                        <button onClick={()=> navigate("/servicio-contratar")}>Contratar</button>
+                        <button onClick={()=>handleClick()}>{isClicked === false ? "Contratar" : "Ver proceso"}</button>
                     : <Link style={{fontSize:"0.8rem"}} to="/ingresar">Inicia sesión para contratar</Link>
                 }
             </div>

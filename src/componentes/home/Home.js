@@ -17,16 +17,16 @@ const Home = () => {
             <Navbar/>
             <main className='home-cont'>
                 <div className='content'>
-                    <h1 className='main-title'>Conecta con nuestros compañeros en WorkNow.</h1>
+                    <h1 className='main-title'>Conecta con nuestros partners en WorkNow.</h1>
                     <p>Somos la red que te conecta con quien necesitas.</p>
                     <div className='search-home'>
-                        <input placeholder='Busca tu compañero'/>
+                        <input placeholder='Busca tu partner'/>
                         <button><i className="fas fa-search"></i>
                         </button>
                     </div>
                     <div className='buttons'>
                         <button onClick={()=> navigate("/listado")}>Ver listado</button>
-                        <button onClick={()=> navigate("/aliado")}>Ser un compañero</button>
+                        <button onClick={()=> navigate("/aliado")}>Ser un partner</button>
                     </div>
                 </div>
                 <div className='memphis'>

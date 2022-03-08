@@ -58,7 +58,8 @@ const Navbar = () => {
                   style={{
                     height: "40px",
                     borderRadius: "50%",
-                    border: "3px solid",
+                    border: "2px solid #00799e",
+                    cursor: "pointer"
                   }}
                 />
               </button>

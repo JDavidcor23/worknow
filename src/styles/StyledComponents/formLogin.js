@@ -7,16 +7,6 @@ export const Form = styled.form`
     text-align: center;
     color:#529eb5;
     gap: 20px;
-<<<<<<< HEAD
-    @media screen and (min-width: 700px) {
-        margin: 20px 0;
-        width: 350px;
-    }
-    @media screen and (max-width: 800px) {
-        width: 200px;
-    }
-=======
->>>>>>> 590a69f4651e8bf7077b0e746b1b339ff5c40159
 `
 export const Input = styled.input`
     height: 35px;

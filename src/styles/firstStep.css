@@ -1,11 +1,50 @@
-.process-cont{
-    width: 100%;
+.firstStep-cont{
+    background-color: white;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
 }
 
-.process-cont div {
-    width: 100%;
+.contrato-title{
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
-.process-cont div img {
+.contrato-img img{
+    height: 400px;
+}
+
+.contrato-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+}
+
+.contrato-input{
+    height: 25px;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    color:#333435;
+    font-size:1rem;
+    background:#ededed;
+}
+
+.contrato-btn{
+    padding: 8px;
+    border: none;
+    font-size: 1.2rem;
+    background: #007a9f;
+    color: white;
+    cursor:pointer;
+    border-radius: 10px;
     width: 100%;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
 }
