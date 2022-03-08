@@ -50,7 +50,7 @@ const Detail = () => {
     const navigate = useNavigate()
 
     const handleClick= () => {
-        navigate("/proceso")
+        navigate(`/proceso/${id}`)
         setIsClicked(true)
     }
     

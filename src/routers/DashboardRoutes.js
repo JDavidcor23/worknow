@@ -13,7 +13,7 @@ const DashboardRoutes = () => {
             <Route path="/aliado" element={<Aliado/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
             <Route path='/*' element={<Navigate to="/" />} />
-            <Route path='/proceso' element={<Process/>} />
+            <Route path='/proceso/:id' element={<Process/>} />
             <Route path='/paso-1' element={<FirstStep/>} />
             <Route path='/paso-2' element={<SecondStep />} />
             <Route path='/paso-3' element={<ThirdStep/>} />
