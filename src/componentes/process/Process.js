@@ -10,10 +10,12 @@ const Process = () => {
 
   const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
 
-  const [user, setUser] = useState([])
-
   let { id } = useParams();
+  const [user, setUser] = useState([])
+  const [contratoID, setContratoID] = useState(sessionStorage.getItem("contratoID"))
 
+
+  
   const filterDatabyId = (id) => {
       const filterData = getJobData.filter(user => user.id === id)
       setUser(filterData[0])
@@ -21,18 +23,21 @@ const Process = () => {
     
     useEffect(() => {
       filterDatabyId(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
-    console.log(user)
-
+  
   const [first, setFirst] = useState(true)
+
   const [second, setSecond] = useState(false)
   const [third, setThird] = useState(false)
 
-    useEffect(() => {
-
-      
-    }, [])
+  const [firstText, setFirstText] = useState("")
+    useEffect(()=>{
+      if(contratoID === id){
+        setFirst(false)
+        setSecond(true)
+      }
+    }, [contratoID, id])
 
   return (
     <>
@@ -55,18 +60,12 @@ const Process = () => {
         </div>
       </div>
         {
-          first &&
-          <FirstStep first={first} setFirst={setFirst} setSecond={setSecond}/> 
-        }
-        {
-          second &&
-          <SecondStep user={user} second={second} setSecond={setSecond} setThird={setThird}/>
-          
-        }
-        {
-          third &&
+          !contratoID ?
+          <FirstStep setContratoID={setContratoID} firstText={firstText} setFirstText={setFirstText} setSecond={setSecond} /> : contratoID === id && second ?
+          <SecondStep firstText={firstText} user={user} second={second} setSecond={setSecond} setThird={setThird}/> : third &&
           <ThirdStep third={third} setThird={setThird}/>
         }
+
     </div>
     </>
   )

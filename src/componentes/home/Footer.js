@@ -8,7 +8,7 @@ const Footer = () => {
     const navigate = useNavigate()
 
     return(
-        <footer className='footer-cont'>
+        <footer className='footer-cont' id='contact' >
             <div className='copy'>
                 <p>2021 WorkNow</p>
             </div>
@@ -17,6 +17,10 @@ const Footer = () => {
                 <img onClick={()=> navigate("/")} src={logo} alt="" />
                 </a>
             </picture>
+            <div style={{fontSize:"0.8rem"}}>
+            <p>osmeilypernia@gmail.com</p>
+            <p>jorgedavid23diaz@gmail.com</p>
+            </div>
         </footer>
     )
 }

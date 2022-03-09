@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate, useLocation
+import {Routes, Route, Navigate
 } from 'react-router-dom';
 import FirstStep from '../componentes/process/FirstStep';
 import Perfil from '../componentes/Perfil/Perfil';

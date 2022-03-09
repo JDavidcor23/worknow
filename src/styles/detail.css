@@ -30,9 +30,13 @@
     width: 33%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 30px;
     justify-content: center;
+}
+
+.aliado-contratar {
+    border-right: 1px solid #9b9b9bbd;
+    align-items: center;
 }
 
 
@@ -57,6 +61,8 @@
     overflow: hidden;
     margin: 10px;
     position: relative;
+    padding: 20px;
+    background-color: aqua;
 }
 
 .aliado-contratar .picture img {
@@ -81,17 +87,9 @@
     font-size: 0.9rem;
     cursor: pointer;
     font-weight: 600;
+    width: 80%;
 }
 
-.images-aliado{
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-}
-
-.images-aliado img {
-    width: 30px;
-}
 
 .aliado-name{
     font-weight: 600;
@@ -102,31 +100,8 @@
     font-size: 0.8rem;
 }
 
-/* .all-detail{
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    width: 80%;
-    margin: auto;
+.aliado-tarifa{
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: right;
 }
-
-.detail-cont{
-    display: grid;
-    grid-template-columns: 5fr 5fr;
-}
-
-.picture-aliado{
-    height: 200px;
-    overflow: hidden;
-    padding: 20px;
-    background-color: rgb(55, 255, 255);
-}
-
-.picture-aliado .ali-img{
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
-
-.contact-cont{
-    background-color: green;
-} */
