@@ -17,7 +17,7 @@ export const listarPartnerAsincrono = (uid) =>{
         if(!querySnapshot.size < 1){
             querySnapshot.forEach((doc) => {
                 PartnerList.id = doc.id
-                PartnerList.uid = doc.uid
+                PartnerList.uid = doc.data().uid
                 PartnerList.city = doc.data().city
                 PartnerList.country = doc.data().country
                 PartnerList.name = doc.data().name

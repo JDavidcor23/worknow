@@ -34,9 +34,7 @@ export const listarJobsAsincrono = (uid) =>{
                 jobstype:doc.data().jobstype,
                 namejob:doc.data().namejob,
                 description:doc.data().description,
-                url1:doc.data().url1,
-                url2:doc.data().url2,
-                url3:doc.data().url3,
+                url:doc.data().url,
             }); 
         })
         dispatch(listarJobsSincrono(JobsList))

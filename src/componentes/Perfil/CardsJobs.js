@@ -1,18 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {eliminarJobsAsincrono} from '../../actions/actionJobs'
+import {eliminarJobsAsincrono, listarJobsAsincrono} from '../../actions/actionJobs'
 import { useDispatch } from "react-redux";
 import {
   Cards,
   ImgCard,
   PCard,
 } from "../../styles/StyledComponents/StyledCards";
+import { Button } from "../../styles/StyledComponents/formLogin";
 const CardsJobs = ({
   setDateJobs,
   setImg1,
   setidDoc,
   setUpdate,
+  uid
 }) => {
   const dispatch = useDispatch()
   const { jobs } = useSelector((store) => store.jobs);
@@ -24,6 +26,7 @@ const CardsJobs = ({
   };
   const handleDelete = (job)=>{
     dispatch(eliminarJobsAsincrono(job))
+    dispatch(listarJobsAsincrono(uid))
   }
   return (
     <div>
@@ -41,10 +44,10 @@ const CardsJobs = ({
               </>
             )}
             <div>
-              <button onClick={()=>handleDelete(job)}>Borrar</button>
               <Link to="/perfil/#formulario">
-                <button onClick={() => handleEdit(job)}>Editar</button>
+                <Button onClick={() => handleEdit(job)}>Editar</Button>
               </Link>
+              <Button onClick={()=>handleDelete(job)} style={{margin:"20px 0", background:"red"}}>Borrar</Button>
             </div>
           </Cards>
         ))}

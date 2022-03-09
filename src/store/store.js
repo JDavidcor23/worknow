@@ -5,6 +5,7 @@ import { registerReducer } from '../reducers/registerReducer';
 import {userReducer} from '../reducers/registerUserDBReducer'
 import {registerJobsReducer} from '../reducers/jobsReducers'
 import {jobsListReducer} from '../reducers/jobsListReducers'
+import { partnerListReducer } from '../reducers/partnerList';
 const composeEnhancers = (typeof window !== 'undefined' && 
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -14,7 +15,7 @@ const reducers = combineReducers({
     jobs:registerJobsReducer,
     usuario:userReducer,
     listjobs: jobsListReducer,
-    partner: jobsListReducer
+    partner: partnerListReducer
 })
 
 
