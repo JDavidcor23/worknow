@@ -2,15 +2,15 @@ import {GoogleAuthProvider} from 'firebase/auth'
 import { FacebookAuthProvider } from 'firebase/auth';
 import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore';
- 
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB4iHaJuErT9ZlvC207IPl6h9owC_3Zcfc",
-  authDomain: "work-now-jorge-osmeily.firebaseapp.com",
-  projectId: "work-now-jorge-osmeily",
-  storageBucket: "work-now-jorge-osmeily.appspot.com",
-  messagingSenderId: "31975578175",
-  appId: "1:31975578175:web:e0c29102dced478182b68a"
+  apiKey: "AIzaSyBMN3he7Ez5lNqrLyuz2xFcIVLBpsAhRso",
+  authDomain: "work-now-6ba72.firebaseapp.com",
+  projectId: "work-now-6ba72",
+  storageBucket: "work-now-6ba72.appspot.com",
+  messagingSenderId: "525416063334",
+  appId: "1:525416063334:web:9e554a7c06630d8cc0a8a7"
 };
 
 const app = initializeApp(firebaseConfig);

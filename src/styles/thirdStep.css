@@ -1,0 +1,63 @@
+.third-cont{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    height: 66%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.third-img{
+    height: 350px;
+}
+
+.card3{
+display: flex;
+justify-content: space-around;
+}
+
+.card3-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+    justify-content: space-evenly;
+    background-color: #007a9f31;
+    padding: 0 50px;
+    border-radius: 10px;
+}
+
+.third-btn{
+    padding: 8px;
+    border: none;
+    font-size: 1.2rem;
+    background: #007a9f;
+    color: white;
+    cursor:pointer;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.valoration{
+    display: flex;
+    justify-content: space-around;
+}
+
+.valoration button {
+    padding: 25px;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
