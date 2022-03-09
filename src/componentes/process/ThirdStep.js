@@ -1,10 +1,19 @@
 import React from 'react'
 import "../../styles/thirdStep.css"
 import grade from "../../resources/Grades-pana.png"
+import { useNavigate, useParams } from 'react-router-dom'
 
 const ThirdStep = () => {
 
+  const navigate = useNavigate()
 
+  let {id} = useParams()
+  console.log(id)
+
+  const handleClick = () => {
+    navigate("/listado")
+    sessionStorage.removeItem("contratoID")
+  }
 
   return (
     <div className='third-cont'>
@@ -18,7 +27,7 @@ const ThirdStep = () => {
               <button type='button' style={{background:"#F6E962"}}>2</button>
               <button type='button' style={{background:"#77DD77"}}>3</button>
             </div>
-            <button className='third-btn'>Finalizar</button>
+            <button onClick={() => handleClick()} className='third-btn'>Finalizar</button>
           </form>
       </div>
     </div>
