@@ -9,7 +9,7 @@ const Card = ({data, id}) => {
     return (
         <div className='card-cont' onClick={()=> navigate(`/detalle-aliado/${id}`)} >
             <picture className='card-img'>
-            <img className='image' src={data.url2} alt=''/>
+            <img className='image' src={data.url} alt=''/>
             </picture>
             <p>{data.namejob}</p>
             <p>Valoración</p>

@@ -4,15 +4,17 @@ import picture from "../../resources/picture.png"
 import "../../styles/detail.css"
 import Footer from '../home/Footer'
 import contact from "../../resources/amigos.png"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { listarPartnerAsincrono } from '../../actions/actionPartner'
 
 const Detail = () => {
-
-    const [user, setUser] = useState([])
+    const dispatch = useDispatch();
+    const [job, setJob] = useState([])
+    const [user, setUser] = useState({})
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [form, setForm] = useState(true);
     const [whatsapp, setWhatsapp] = useState("")
@@ -20,19 +22,18 @@ const Detail = () => {
     const [isClicked, setIsClicked] = useState(false)
 
     const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
-
     let { id } = useParams();
     const filterDatabyId = (id) => {
-        const filterData = getJobData.filter(user => user.id === id)
-        setUser(filterData[0])
+        const filterData = getJobData.filter(job => job.id === id)
+        setJob(filterData[0])
+
     }
     useEffect(() => {
         filterDatabyId(id)
-        
         // eslint-disable-next-line react-hooks/exhaustive-deps
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
-            if (user?.uid) {
+        onAuthStateChanged(auth, (job) => {
+            if (job?.uid) {
                 setIsLoggedIn(true);
             } else {
                 setIsLoggedIn(false);
@@ -62,9 +63,9 @@ const Detail = () => {
         <section className='details'>
             <div className='aliado-contratar'>
                 <div className='picture'>
-                <img src={user.url2} alt=''/>
+                <img src={job.url} alt=''style={{objectFit: "cover"}}/>
                 </div>
-                <p>Calificación: {user.valoration}</p>
+                <p>Calificación: {job.valoration}</p>
                 {
                     isLoggedIn ? 
                         <button onClick={()=>handleClick()}>{isClicked === false ? "Contratar" : "Ver proceso"}</button>
@@ -76,8 +77,8 @@ const Detail = () => {
                     <p>Trabajos realizados</p>
                     <img src={picture} alt="" />
                 </div>
-                    <p className='aliado-name'>{user.namejob}</p>
-                    <p className='aliado-desc'>{user.description}</p>
+                    <p className='aliado-name'>{job.namejob}</p>
+                    <p className='aliado-desc'>{job.description}</p>
                     <p>Tarifa: A convenir</p>
             </div>
                 {form ? 

@@ -35,6 +35,7 @@ export const Button = styled.button`
 
 
 export const TextArea = styled.textarea`
+    width: 90%;
     height: 200px;
     font-size: 1.3rem;
     border: none;

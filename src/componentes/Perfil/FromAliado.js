@@ -18,8 +18,6 @@ const FromAliado = () => {
   const [update, setUpdate] = useState(false)
   const [idDoc, setidDoc] = useState("")
   const [img1, setImg1] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
-  const [img2, setImg2] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
-  const [img3, setImg3] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
   const [dateJobs, setDateJobs] = useState({
     uid:id,
     type:"",
@@ -27,9 +25,8 @@ const FromAliado = () => {
     jobstype:"",
     namejob:"",
     description:"",
-    url1:"",
-    url2:"",
-    url3:"",
+    url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
+    valoration:1
   })
   const handleChange = ({ target }) => {
     setDateJobs({
@@ -42,8 +39,20 @@ const FromAliado = () => {
     e.preventDefault();
     if(!update){
       dispatch(registroJobsAsincrono(dateJobs))
+      Swal.fire({
+        icon: "success",
+        title: "Trabajo guardado correctamente",
+        showConfirmButton: false,
+        timer: 2500,
+      });
     }else{
       dispatch(getJobsForEdit(idDoc, dateJobs))
+      Swal.fire({
+        icon: "success",
+        title: "Trabajo guardado correctamente",
+        showConfirmButton: false,
+        timer: 2500,
+      });
       setUpdate(false)
     }
     e.target.reset()
@@ -51,47 +60,26 @@ const FromAliado = () => {
   const handlePictureClick1 = () => {
     document.querySelector("#fileSelector1").click();
   };
-  const handlePictureClick2 = () => {
-    document.querySelector("#fileSelector2").click();
-  };
-  const handlePictureClick3 = () => {
-    document.querySelector("#fileSelector3").click();
-  };
-
+  const handleCancel = ()=>{
+    setUpdate(false)
+    setDateJobs({
+      uid:id,
+      type:"",
+      money:"",
+      jobstype:"",
+      namejob:"",
+      description:"",
+      url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
+      valoration:1
+    })
+  }
   const handleFileChanged1 = async(e) => {
   let url = ""
   fileUpload(e.target.files[0])
     .then((response) => {
       url = response
       setImg1(url)
-      dateJobs.url1 = url
-      console.log(url)
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  };
-  const handleFileChanged2 = async(e) => {
-    let url = ""
-  fileUpload(e.target.files[0])
-    .then((response) => {
-      url = response
-      setImg2(url)
-      dateJobs.url2 = url
-      console.log(url)
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  };
-  const handleFileChanged3 = async(e) => {
-    let url = ""
-  fileUpload(e.target.files[0])
-    .then((response) => {
-      url = response
-      setImg3(url)  
-      dateJobs.url3= url
-      console.log(url)
+      dateJobs.url = url
     })
     .catch((error) => {
       console.log(error.message);
@@ -110,8 +98,8 @@ const FromAliado = () => {
         <option value="DEFAULT" disabled>
           Tipo de cobro
         </option>
-        <option value="A convenir">A convenir</option>
         <option value="Hora">Hora</option>
+        <option value="A convenir">A convenir</option>
         <option value="Día">Día</option>
       </Select>
       {dateJobs.type === "A convenir"?
@@ -142,6 +130,8 @@ const FromAliado = () => {
         <option value="Panadero">Panadero</option>
         <option value="Carpintero">Carpintero</option>
         <option value="Chef">Chef</option>
+        <option value="Electricista">Electricista</option>
+        <option value="Entrenador de perros">Entrenador de perros</option>
       </Select>
       <InputAli 
       type="text" 
@@ -151,45 +141,27 @@ const FromAliado = () => {
       placeholder="Nombre de tu trabajo"
       onChange={handleChange}
       />
-      <Label htmlFor="">Añade 3 imagenes</Label>
+      <Label htmlFor="">Añade una imagen de presentación</Label>
       <InputAli
         id="fileSelector1"
         type="file"
         className="form-control "
         placeholder="url image"
-        name="url1"
+        name="url"
         style={{ display: "none" }}
         onChange={handleFileChanged1}
         
       />
-      <InputAli
-        id="fileSelector2"
-        type="file"
-        className="form-control "
-        placeholder="url image"
-        name="url2"
-        style={{ display: "none" }}
-        onChange={handleFileChanged2}
-        
-      />
-      <InputAli
-        id="fileSelector3"
-        type="file"
-        className="form-control "
-        placeholder="url image"
-        name="url3"
-        style={{ display: "none" }}
-        onChange={handleFileChanged3}
-        
-      />
+
+
       <DivImages>
         <ConntainerImages>
             <img
             style={{margin:"10px"}}
             src={img1}
             alt=""
-            width="150px"
-            height="150px"
+            width="350px"
+            height="350px"
           />
           <Button
             className="btn btn-dark"
@@ -200,40 +172,6 @@ const FromAliado = () => {
             Imagen
           </Button>
         </ConntainerImages>
-        <ConntainerImages>
-          <img
-              style={{margin:"10px"}}
-              src={img2}
-              alt=""
-              width="150px"
-              height="150px"
-            />
-          <Button
-            className="btn btn-dark"
-            onClick={handlePictureClick2}
-            type="button"
-            style={{width: "150px"}}
-          >
-            Imagen
-          </Button>
-        </ConntainerImages>
-        <ConntainerImages>
-          <img
-          style={{margin:"10px"}}
-          src={img3}
-          alt=""
-          width="150px"
-          height="150px"
-        />
-        <Button
-        className="btn btn-dark"
-        onClick={handlePictureClick3}
-        type="button"
-        style={{width: "150px"}}
-      >
-        Imagen
-      </Button>
-        </ConntainerImages>
       </DivImages>
        <TextArea 
        required
@@ -243,12 +181,13 @@ const FromAliado = () => {
        placeholder="Descripción de tu trabajo"
        ></TextArea> 
       <Button type="submit" style={{margin:"20px 0 0 0"}}>Subir</Button>
+      {update &&
+      <Button style={{margin:"20px 0 0 0"}} onClick={handleCancel}>Cancelar</Button>
+      }
     </FormAli>
     <CardsJobs 
     setDateJobs={setDateJobs} 
     setImg1={setImg1}
-    setImg2={setImg2}
-    setImg3={setImg3}
     setidDoc={setidDoc}
     setUpdate={setUpdate}
     />

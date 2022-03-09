@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {eliminarJobsAsincrono} from '../../actions/actionJobs'
@@ -11,25 +11,17 @@ import {
 const CardsJobs = ({
   setDateJobs,
   setImg1,
-  setImg2,
-  setImg3,
   setidDoc,
   setUpdate,
 }) => {
   const dispatch = useDispatch()
-  const [arryJobs, setArryJobs] = useState([]);
   const { jobs } = useSelector((store) => store.jobs);
   const handleEdit = (job) => {
     setDateJobs({ ...job });
-    setImg1(job.url1);
-    setImg2(job.url2);
-    setImg3(job.url3);
+    setImg1(job.url);
     setidDoc(job.id);
     setUpdate(true);
   };
-  useEffect(() => {
-    setArryJobs(jobs)
-  }, [jobs]);
   const handleDelete = (job)=>{
     dispatch(eliminarJobsAsincrono(job))
   }
@@ -38,7 +30,7 @@ const CardsJobs = ({
       {jobs !== undefined &&
         jobs.map((job) => (
           <Cards key={job.id}>
-            <ImgCard src={job.url1} alt="" />
+            <ImgCard src={job.url} alt="" />
             <PCard>{job.namejob}</PCard>
             {job.type === "A convenir" ? (
               <PCard>Tipo de cobro: {job.type}</PCard>

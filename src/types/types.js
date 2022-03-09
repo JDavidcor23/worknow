@@ -16,3 +16,6 @@ export const user ={
     listuser:"listuser",
     cleanUser:"cleanUser"
 }
+export const partner ={
+    listpartner:"listpartner",
+}

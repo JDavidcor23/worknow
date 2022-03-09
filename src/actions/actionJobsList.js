@@ -9,15 +9,14 @@ export const jobsListFilterASincrono = () =>{
         querySnapshot.forEach((doc) => {
             jobs.push({
                 id :doc.id,
-                uid:doc.data().uid,
-                type:doc.data().type,
-                money:doc.data().money,
-                jobstype:doc.data().jobstype,
-                namejob:doc.data().namejob,
-                description:doc.data().description,
-                url1:doc.data().url1,
-                url2:doc.data().url2,
-                url3:doc.data().url3,
+                uid: doc.data().uid,
+                type: doc.data().type,
+                money: doc.data().money,
+                jobstype: doc.data().jobstype,
+                namejob: doc.data().namejob,
+                description: doc.data().description,
+                url: doc.data().url,
+                valoration: doc.data().valoration,
             })
         }); 
 
