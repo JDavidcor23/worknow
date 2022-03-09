@@ -1,8 +1,7 @@
 import React from 'react'
 import "../../styles/secondStep.css"
-import panadero from "../../resources/mas panes.jpg"
 
-const SecondStep = ({second, user, setSecond, setThird}) => {
+const SecondStep = ({second, user, setSecond, setThird, firstText}) => {
 
   const setStepState = () => {
     setSecond(false)
@@ -19,6 +18,7 @@ const SecondStep = ({second, user, setSecond, setThird}) => {
         <div className='card2-text'>
           <p style={{fontWeight:"600"}}>{user.namejob}</p>
           <p>{user.description}</p>
+          <p>Contratación: {firstText}</p>
         </div>
       </div>
       <button className='second-btn' onClick={()=> setStepState()}>Finalizar servicio</button>

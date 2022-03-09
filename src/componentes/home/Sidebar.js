@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import menu from "../../resources/menu.png"
 import "../../styles/sidebar.css"
-import {useDispatch} from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { logout } from "../../actions/actionLogin";
+
 
 const Sidebar = () => {
-    const dispatch = useDispatch();
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     React.useEffect(() => {
       const auth = getAuth();
@@ -42,9 +40,9 @@ const Sidebar = () => {
                 </li>
                 </>
                 }
-                
-                <li>Preguntas frecuentes</li>
-                <li>Contáctanos</li>
+                <li id=''> 
+                <a href="#contacto">Contáctanos</a>
+                </li>
                 </ul>
             </nav>
             }

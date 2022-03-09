@@ -1,20 +1,20 @@
 import React from 'react'
 import Navbar from '../home/Navbar'
-import picture from "../../resources/picture.png"
 import "../../styles/detail.css"
 import Footer from '../home/Footer'
 import contact from "../../resources/amigos.png"
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { listarPartnerAsincrono } from '../../actions/actionPartner'
+// import { listarPartnerAsincrono } from '../../actions/actionPartner'
 
 const Detail = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [job, setJob] = useState([])
-    const [user, setUser] = useState({})
+    const [idToCompare, setIdToCompare] = useState("")
+    // const [user, setUser] = useState({})
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [form, setForm] = useState(true);
     const [whatsapp, setWhatsapp] = useState("")
@@ -45,14 +45,20 @@ const Detail = () => {
         let newvalue = target.value.replace(/ /g, "%20");
         setWhatsapp(newvalue)
     }
+
     const handleSubmit = (e)=>{
         e.preventDefault();
     }
+
     const navigate = useNavigate()
+    
+    
+console.log(idToCompare)
 
     const handleClick= () => {
         navigate(`/proceso/${id}`)
         setIsClicked(true)
+        setIdToCompare(sessionStorage.setItem("contratoID", id)) 
     }
     
     return (
@@ -65,7 +71,7 @@ const Detail = () => {
                 <div className='picture'>
                 <img src={job.url} alt=''style={{objectFit: "cover"}}/>
                 </div>
-                <p>Calificación: {job.valoration}</p>
+                <p style={{fontSize:"0.9rem", fontWeight:"600"}}>Calificación: {job.valoration}</p>
                 {
                     isLoggedIn ? 
                         <button onClick={()=>handleClick()}>{isClicked === false ? "Contratar" : "Ver proceso"}</button>
@@ -73,17 +79,13 @@ const Detail = () => {
                 }
             </div>
             <div className='aliado-info'>
-                <div className='images-aliado'>
-                    <p>Trabajos realizados</p>
-                    <img src={picture} alt="" />
-                </div>
                     <p className='aliado-name'>{job.namejob}</p>
                     <p className='aliado-desc'>{job.description}</p>
-                    <p>Tarifa: A convenir</p>
+                    <p className='aliado-tarifa'>Tarifa: {job.type}</p>
             </div>
                 {form ? 
                 <div className='contact'>
-                <h4 style={{textAlign:"center"}}>¡Házle saber a Jesús que quieres contactarte con él!</h4>
+                <h4 style={{textAlign:"center"}}>¡Házle saber a {job.namejob} que quieres contactarte con él!</h4>
                 <img src={contact} alt="" style={{width:"300px"}} />
                 <button style={{padding:"10px 20px", background:"#0d80a3", color:"white", borderRadius:"10px", border:"none", width:"90%", cursor:"pointer", fontSize:"1.2rem"}} target="_blank" rel='noreferrer' onClick={()=>setForm(!form)}>Conectar</button>
                 </div>

@@ -10,6 +10,10 @@ const Process = () => {
 
   const getJobData =  useSelector((watchjobs => watchjobs.listjobs.jobsList))
 
+  const [isSameId, setIsSameId] = useState("")
+
+  const sessionData = sessionStorage.getItem("contratoID")
+
   const [user, setUser] = useState([])
 
   let { id } = useParams();
@@ -21,13 +25,17 @@ const Process = () => {
     
     useEffect(() => {
       filterDatabyId(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     console.log(user)
+    console.log(sessionData)
 
   const [first, setFirst] = useState(true)
   const [second, setSecond] = useState(false)
   const [third, setThird] = useState(false)
+
+  const [firstText, setFirstText] = useState("")
 
     useEffect(() => {
 
@@ -55,12 +63,12 @@ const Process = () => {
         </div>
       </div>
         {
-          first &&
-          <FirstStep first={first} setFirst={setFirst} setSecond={setSecond}/> 
+          first && !sessionData ?
+          <FirstStep firstText={firstText} setFirstText={setFirstText} first={first} setFirst={setFirst} setSecond={setSecond}/> :             sessionData === id &&
+          <SecondStep firstText={firstText} user={user} second={second} setSecond={setSecond} setThird={setThird}/>
         }
         {
-          second &&
-          <SecondStep user={user} second={second} setSecond={setSecond} setThird={setThird}/>
+
           
         }
         {
