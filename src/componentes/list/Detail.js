@@ -13,7 +13,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 const Detail = () => {
     // const dispatch = useDispatch();
     const [job, setJob] = useState([])
-    const [idToCompare, setIdToCompare] = useState("")
     // const [user, setUser] = useState({})
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [form, setForm] = useState(true);
@@ -52,13 +51,10 @@ const Detail = () => {
 
     const navigate = useNavigate()
     
-    
-console.log(idToCompare)
 
     const handleClick= () => {
         navigate(`/proceso/${id}`)
-        setIsClicked(true)
-        setIdToCompare(sessionStorage.setItem("contratoID", id)) 
+        setIsClicked(true) 
     }
     
     return (

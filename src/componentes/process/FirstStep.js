@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../../styles/firstStep.css"
 import contrato from "../../resources/contratar.png"
+import { useParams } from 'react-router-dom';
 
-const FirstStep = ({first, setFirst, setSecond, firstText, setFirstText}) => {
+const FirstStep = ({setFirst, setSecond, setFirstText, setContratoID}) => {
+
+    let { id } = useParams();
 
     const setStepState = () => {
+        sessionStorage.setItem("contratoID", id)
+        setContratoID(id)
         setFirst(false)
         setSecond(true)
     }
@@ -17,7 +22,7 @@ const FirstStep = ({first, setFirst, setSecond, firstText, setFirstText}) => {
         e.preventDefault()
     }
 
-    console.log(firstText)
+    
 
     return (
         <div className='firstStep-cont' id='paso-1'>
