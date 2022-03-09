@@ -1,0 +1,66 @@
+.secondStep-cont{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    height: 66%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.state-title{
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.card2-cont{
+    display: flex;
+    background: #ECECEC;
+    width: 80%;
+    align-items: center;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.card2-text{
+    display: block;
+    margin: auto;
+}
+
+.img2-cont{
+    height: 170px;
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img2-cont img {
+    position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    object-fit: contain;
+    width: 100%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.second-btn{
+    padding: 8px;
+    border: none;
+    font-size: 1.2rem;
+    background: #007a9f;
+    color: white;
+    cursor:pointer;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    width: 30%;
+}

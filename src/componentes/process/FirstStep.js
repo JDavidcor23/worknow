@@ -2,9 +2,15 @@ import React from 'react'
 import "../../styles/firstStep.css"
 import contrato from "../../resources/contratar.png"
 
-const FirstStep = () => {
+const FirstStep = ({first, setFirst, setSecond}) => {
+
+    const setStepState = () => {
+        setFirst(false)
+        setSecond(true)
+    }
+
     return (
-        <div className='firstStep-cont'>
+        <div className='firstStep-cont' id='paso-1'>
             <div className='contrato-img'>
                 <p className='contrato-title'>Especifica el servicio que deseas contratar</p>
                 <img src={contrato} alt="" />
@@ -14,7 +20,7 @@ const FirstStep = () => {
                 <input className='contrato-input' type="text" />
                 <label> Tipo de contrato </label>
                 <input className="contrato-input" type="text" />
-                <button className='contrato-btn' type='button'>Contratar</button>
+                <button onClick={()=> setStepState()} className='contrato-btn' type='button' >Contratar</button>
             </form>
         </div>
     )
