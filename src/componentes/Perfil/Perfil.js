@@ -102,7 +102,7 @@ const Perfil = () => {
     <>
       <Navbar />
       <Container>
-        <h2 style={{margin:"20px 0"}}>Datos de perfil</h2>
+        <h2 style={{margin:"20px 0", color:"#333435"}}>Datos de perfil</h2>
         <FormEdit onSubmit={handleSubmit}>
 
           <ContainerImg>
@@ -169,7 +169,7 @@ const Perfil = () => {
           </>
           :  
           <div>
-            <h2 style={{margin:"30px 0"}}>¿Quieres ser un Partner? rellena todos los campos</h2>
+            <h2 style={{margin:"30px 0", color:"#333435"}}>¿Quieres ser un Partner? rellena todos los campos</h2>
           </div>
         }
       </Container>

@@ -14,7 +14,7 @@ const SecondStep = ({second, user, setSecond, setThird}) => {
       <p className='state-title'>Verifica el estado de tu servicio</p>
       <div className='card2-cont'>
         <div className='img2-cont'>
-        <img src={user.url1} alt="userimg" />
+        <img src={user.url} alt="userimg" />
         </div>
         <div className='card2-text'>
           <p style={{fontWeight:"600"}}>{user.namejob}</p>
