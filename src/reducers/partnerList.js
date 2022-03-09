@@ -3,7 +3,7 @@ import {partner} from '../types/types'
 const partnerlist ={}
 
 
-export const jobsListReducer = (state = partnerlist, action) =>{
+export const partnerListReducer = (state = partnerlist, action) =>{
     switch (action.type) {
         case partner.listpartner:
             return {

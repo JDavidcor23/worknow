@@ -72,6 +72,7 @@ const FromAliado = () => {
       url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
       valoration:1
     })
+    setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png")
   }
   const handleFileChanged1 = async(e) => {
   let url = ""
@@ -182,7 +183,7 @@ const FromAliado = () => {
        ></TextArea> 
       <Button type="submit" style={{margin:"20px 0 0 0"}}>Subir</Button>
       {update &&
-      <Button style={{margin:"20px 0 0 0"}} onClick={handleCancel}>Cancelar</Button>
+      <Button style={{margin:"20px 0", background:"red"}} onClick={handleCancel}>Cancelar</Button>
       }
     </FormAli>
     <CardsJobs 
@@ -190,6 +191,7 @@ const FromAliado = () => {
     setImg1={setImg1}
     setidDoc={setidDoc}
     setUpdate={setUpdate}
+    uid={id}
     />
     </>
   );
