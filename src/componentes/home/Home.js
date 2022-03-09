@@ -27,7 +27,7 @@ const Home = () => {
                     </div>
                     <div className='buttons'>
                         <button onClick={()=> navigate("/listado")}>Ver listado</button>
-                        <button onClick={()=> navigate("/aliado")}>Ser un partner</button>
+                        <button onClick={()=> navigate("/perfil")}>Ser un partner</button>
                     </div>
                 </div>
                 <div className='memphis'>
