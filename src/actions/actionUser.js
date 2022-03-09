@@ -31,7 +31,8 @@ export const listarUserAsincrono = (uid) =>{
             url:"",
         };
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
+        if(!querySnapshot.size < 1){
+            querySnapshot.forEach((doc) => {
                 UserList.id = doc.id
                 UserList.uid = doc.uid
                 UserList.city = doc.data().city
@@ -39,8 +40,12 @@ export const listarUserAsincrono = (uid) =>{
                 UserList.name = doc.data().name
                 UserList.phone = doc.data().phone
                 UserList.url = doc.data().url
-        })
-        dispatch(listarUsersSincrono(UserList))
+            })
+            dispatch(listarUsersSincrono(UserList))
+        }
+        else{
+            dispatch(cleanUsersSincrono())
+        }
     }
 }
 
@@ -56,5 +61,11 @@ export const registroUsersSincrono = (User) =>{
     return{
         type: user.registeruserdb,
         payload: User
+    }
+}
+
+export const cleanUsersSincrono = () =>{
+    return{
+        type: user.registeruserdb,
     }
 }

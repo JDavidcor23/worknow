@@ -16,7 +16,7 @@ export const registerJobsReducer = (state = initialState, action) => {
             }
         case typesjobs.deletejobs:
             return {
-                jobs: state.jobs.filter(pro => pro.name !== action.payload)
+                jobs: state.jobs.filter(pro => pro.id !== action.payload)
             }
         default:
             return state;

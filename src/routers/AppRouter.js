@@ -23,15 +23,14 @@ function AppRouter() {
     onAuthStateChanged(auth, (user) => {
         if(user?.uid){
          setIsLoggedIn(true)
-         dispatch(listarUserAsincrono(user.uid))
          dispatch(loginSincrono(user.uid,user.displayName))
+         dispatch(listarUserAsincrono(user.uid))
         }
         else{
         setIsLoggedIn(false)
         }
     })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setIsLoggedIn])
+  }, [dispatch, isLoggedIn])
 
   return (
     <BrowserRouter>

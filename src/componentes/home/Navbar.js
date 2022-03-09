@@ -15,14 +15,16 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const {usuario} = useSelector((store) => store.usuario)
-  const [image, setImage] = React.useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
+  const [image, setImage] = React.useState()
   React.useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
         setIsLoggedIn(true);
-            if(usuario.url !== ""){
+            if(usuario !== undefined){
               setImage(usuario.url)
+            }else{
+              setImage("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
             }
       } else {
         setIsLoggedIn(false);

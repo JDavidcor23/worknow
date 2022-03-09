@@ -1,6 +1,5 @@
 import {Routes, Route, Navigate, useLocation
 } from 'react-router-dom';
-import Aliado from '../componentes/Aliado/Aliado';
 import FirstStep from '../componentes/process/FirstStep';
 import Perfil from '../componentes/Perfil/Perfil';
 import Process from '../componentes/process/Process';
@@ -11,7 +10,6 @@ const DashboardRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/aliado" element={<Aliado/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
             <Route path='/*' element={<Navigate to="/" />} /> 
             <Route path='/proceso/:id' element={<Process/>} />

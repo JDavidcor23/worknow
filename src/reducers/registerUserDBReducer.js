@@ -14,6 +14,10 @@ export const userReducer = (state = usuario, action) =>{
             return {
                 usuario: {...action.payload}
             }
+        case user.cleanUser:
+            return{
+                usuario:{}
+            }
         default:
             return state;
     }

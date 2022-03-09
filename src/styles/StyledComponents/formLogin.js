@@ -29,6 +29,7 @@ export const Button = styled.button`
     width: 100%;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
+    max-width:450px;
     cursor: pointer;
 `
 

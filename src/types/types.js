@@ -13,5 +13,6 @@ export const jobsList = {
 }
 export const user ={
     registeruserdb:"registeruserdb",
-    listuser:"listuser"
+    listuser:"listuser",
+    cleanUser:"cleanUser"
 }

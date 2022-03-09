@@ -4,14 +4,16 @@ import { addDoc,collection,getDocs,query,where, deleteDoc, doc, updateDoc} from 
 
 //  async
 export const getJobsForEdit = (id, newJobs) =>{
-    updateDoc(doc(db,"Jobs", id),newJobs)
+    return(dispatch)=>{
+        updateDoc(doc(db,"JobsJ", id),newJobs)
+        dispatch(listarJobsAsincrono(newJobs.uid))
+    }
 }
 export const registroJobsAsincrono =(Jobs)=>{
     return(dispatch)=>{
-        addDoc(collection(db, "Jobs"), Jobs)
+        addDoc(collection(db, "JobsJ"), Jobs)
         .then(resp =>{
             dispatch(registroJobsSincrono(Jobs))
-            dispatch(listarJobsAsincrono())
         })
         .catch(err =>{
             console.log(err)
@@ -20,41 +22,38 @@ export const registroJobsAsincrono =(Jobs)=>{
 }
 export const listarJobsAsincrono = (uid) =>{
     return async(dispatch)=>{
-        const q = query(collection(db, "Jobs"), where("uid", "==", uid));
+        const q = query(collection(db, "JobsJ"), where("uid", "==", uid));
         const JobsList=[];
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             JobsList.push({
                 id :doc.id,
-                uid :uid,
-                description :doc.data().description,
-                category :doc.data().category,
-                price :doc.data().price,
-                url :doc.data().url,
-                country :doc.data().country,
-                city :doc.data().city,
-                name :doc.data().name,
+                uid:doc.data().uid,
+                type:doc.data().type,
+                money:doc.data().money,
+                jobstype:doc.data().jobstype,
+                namejob:doc.data().namejob,
+                description:doc.data().description,
+                url1:doc.data().url1,
+                url2:doc.data().url2,
+                url3:doc.data().url3,
             }); 
         })
         dispatch(listarJobsSincrono(JobsList))
     }
 }
 
-export const eliminarJobsAsincrono = (name, id) =>{
+export const eliminarJobsAsincrono = (job) =>{
     return async(dispatch)=>{
-        const q = query(collection(db, "Jobs"), where("uid", "==", id), where("name", "==", name));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((docu) =>{
-            deleteDoc(doc(db, 'Jobs', docu.id))
-        })
-        dispatch(eliminarJobsSincrono(name))
+        deleteDoc(doc(db, 'JobsJ', job.id))
+        dispatch(eliminarJobsSincrono(job))
     }
 }
 //sincrono
-export const eliminarJobsSincrono = (name) =>{
+export const eliminarJobsSincrono = (id) =>{
     return{
         type: typesjobs.deletejobs,
-        payload: name
+        payload: id
     }
 }
 export const listarJobsSincrono = (Jobs) =>{
