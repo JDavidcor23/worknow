@@ -1,12 +1,12 @@
-import { useFormik } from "formik";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { jobsListSincrono } from "../../actions/actionJobsList";
 import "../../styles/search.css";
-
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useFormik } from "formik";
+import { jobsListSincrono } from "../../actions/actionJobsList";
 const Search = () => {
-  const { jobsList } = useSelector((state) => state.listjobs);
   const dispatch = useDispatch();
+  const { jobsList } = useSelector((state) => state.listjobs);
   const formik = useFormik({
     initialValues: {
       ciudad: "",
@@ -16,14 +16,10 @@ const Search = () => {
     },
   });
   const filtrar = (ciudad) => {
-    const newJobs = [];
-    for (let i = 0; i < jobsList.length; i++) {
-      if (jobsList[i].city.toLowerCase().includes(ciudad.toLowerCase())) {
-        newJobs.push(jobsList[i]);
-      }
-      console.log(newJobs);
-    }
-    dispatch(jobsListSincrono(newJobs));
+    let newjobs = jobsList.filter((job) =>
+      job.city.toLowerCase().includes(ciudad.toLowerCase())
+    );
+    dispatch(jobsListSincrono(newjobs));
   };
   return (
     <div className="search-cont">
