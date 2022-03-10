@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react';
 import "../../styles/firstStep.css"
 import contrato from "../../resources/contratar.png"
 import { useParams } from 'react-router-dom';
@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 const FirstStep = ({setFirst, setSecond, setFirstText, setContratoID}) => {
 
     let { id } = useParams();
-
     const setStepState = () => {
         sessionStorage.setItem("contratoID", id)
         setContratoID(id)

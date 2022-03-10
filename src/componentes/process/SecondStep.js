@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/secondStep.css"
 
-const SecondStep = ({second, user, setSecond, setThird, firstText}) => {
+const SecondStep = ({user, setSecond, setThird, firstText}) => {
 
   const setStepState = () => {
     setSecond(false)

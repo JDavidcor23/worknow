@@ -24,7 +24,6 @@ const Detail = () => {
     const filterData = getJobData.filter((job) => job.id === id);
     setJob(filterData[0]);
   };
-  console.log(typeof partner)
   useEffect(() => {
     filterDatabyId(id);
     const auth = getAuth();

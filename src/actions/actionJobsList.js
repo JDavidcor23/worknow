@@ -8,15 +8,16 @@ export const jobsListFilterASincrono = () =>{
         const querySnapshot =  await getDocs(collection(db,"JobsJ"))
         querySnapshot.forEach((doc) => {
             jobs.push({
-                id :doc.id,
-                uid: doc.data().uid,
+                id:doc.id,
                 type: doc.data().type,
+                city: doc.data().city,
                 money: doc.data().money,
                 jobstype: doc.data().jobstype,
                 namejob: doc.data().namejob,
                 description: doc.data().description,
                 url: doc.data().url,
                 valoration: doc.data().valoration,
+                votos: doc.data().votos,
             })
         }); 
 

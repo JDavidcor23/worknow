@@ -15,18 +15,21 @@ import { useSelector } from "react-redux";
 import { getJobsForEdit, registroJobsAsincrono } from "../../actions/actionJobs";
 const FromAliado = () => {
   const { id } = useSelector((store) => store.login);
+  const { usuario } = useSelector((store) => store.usuario);
   const [update, setUpdate] = useState(false)
   const [idDoc, setidDoc] = useState("")
   const [img1, setImg1] = useState("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
   const [dateJobs, setDateJobs] = useState({
     uid:id,
     type:"",
+    city:usuario.city,
     money:"",
     jobstype:"",
     namejob:"",
     description:"",
     url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
-    valoration:1
+    valoration:5,
+    votos:[1],
   })
   const handleChange = ({ target }) => {
     setDateJobs({
@@ -45,6 +48,7 @@ const FromAliado = () => {
         showConfirmButton: false,
         timer: 2500,
       });
+      e.target.reset()
     }else{
       dispatch(getJobsForEdit(idDoc, dateJobs))
       Swal.fire({
@@ -69,8 +73,7 @@ const FromAliado = () => {
       jobstype:"",
       namejob:"",
       description:"",
-      url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
-      valoration:1
+      url:"",
     })
     setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png")
   }
