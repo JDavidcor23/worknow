@@ -54,7 +54,7 @@ return (
     <>
     <Navbar />
     <div className="details-cont">
-        <h4 className="conoce">Conoce a tu compañero</h4>
+        <h4 className="conoce">Conoce a tu partner</h4>
         <section className="details">
         <div className="aliado-contratar">
             {partner !== undefined && (
@@ -88,7 +88,7 @@ return (
             <div className="picture">
             <img src={job.url} alt="" style={{ objectFit: "cover" }} />
             </div>
-            <p>Calificación: {job.valoration}</p>
+            <p style={{fontWeight:"600"}}>Calificación: {job.valoration}</p>
             {isLoggedIn ? (
             <button onClick={() => handleClick()}>
                 {isClicked === false ? "Contratar" : "Ver proceso"}
@@ -102,13 +102,13 @@ return (
         <div className="aliado-info">
             <p className="aliado-name">{job.namejob}</p>
             <p className="aliado-desc">{job.description}</p>
-            <p>Tarifa: {job.type}</p>
+            <p style={{fontSize:"0.8rem", fontWeight:"600"}}>Tarifa: {job.type}</p>
             {job.type !== "A convenir" && <p>Precio: {job.money}</p>}
         </div>
         {form ? (
             <div className="contact">
             <h4 style={{ textAlign: "center" }}>
-                ¡Házle saber a Jesús que quieres contactarte con él!
+                ¡Házle saber a {partner.name} que quieres contactarte con él!
             </h4>
             <img src={contact} alt="" style={{ width: "300px" }} />
             <button
