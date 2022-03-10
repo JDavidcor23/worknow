@@ -29,7 +29,7 @@ const Search = () => {
     // }
     return (
         <div className="search-cont">
-            <h5 className='advance-tittle'>Búsqueda avanzada</h5>
+            <h5 className='advance-tittle'>Búsqueda por ubicación</h5>
             <form className='search-form'>
                 <select className='select' name='categorias' id='categorias'>
                     <option hidden selected>Categorías</option>

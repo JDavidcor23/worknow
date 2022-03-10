@@ -18,19 +18,21 @@ const HowDoesItWorks = () => {
                         <img src={user} alt="" />
                         </picture>
                         <p className='cardTitle'>Busca a tu partner</p>
+                        <p>En el listado podrás encontrar al partner que más necesitas, puedes filtrar por ubicación.</p>
                     </div>
                     <div className='info-card3'>
                         <picture>
                         <img src={message} alt="" />
                         </picture>
                         <p className='cardTitle'>Contacta por mensaje</p>
+                        <p>Conectar con tu partner es más fácil de lo que piensas, sólo contacta por WhatsaApp en el apartado de conocer a tu aliado.</p>
                     </div>
                     <div className='info-card1'>
                         <picture>
                             <img src={handshake} alt="" />
                         </picture>
                         <p className='cardTitle'>Contrata a tu partner</p>
-                        <p></p>
+                        <p>Por medio de un acuerdo previo, puedes contratar a tu partner según las condiciones de ambos.</p>
                     </div>
                 </div>
             </div>
