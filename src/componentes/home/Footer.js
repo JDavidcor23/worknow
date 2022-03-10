@@ -8,7 +8,7 @@ const Footer = () => {
     const navigate = useNavigate()
 
     return(
-        <footer className='footer-cont' id='contact' >
+        <footer className='footer-cont' id='contacto' >
             <div className='copy'>
                 <p>2021 WorkNow</p>
             </div>

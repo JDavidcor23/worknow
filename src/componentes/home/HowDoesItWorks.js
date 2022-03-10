@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/howItWorks.css"
 import message from "../../resources/message.svg"
-import ubication from "../../resources/ubication.svg"
+import handshake from "../../resources/handshake.svg"
 import user from "../../resources/user.svg"
 
 const HowDoesItWorks = () => {
@@ -12,26 +12,27 @@ const HowDoesItWorks = () => {
                     <h4>¿Cómo funciona?</h4>
                 </header>
                 <div className='how-cards'>
-                    <div className='info-card1'>
-                        <picture>
-                            <img src={ubication} alt="" />
-                        </picture>
-                        <p className='cardTitle'>Elige tu ubicación</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quia voluptates modi excepturi eum, nemo aspernatur incidunt, error vitae, iure nesciunt. Aliquid, quas modi at explicabo optio labore vero?</p>
-                    </div>
+                    
                     <div className='info-card2'>
                         <picture>
                         <img src={user} alt="" />
                         </picture>
-                        <p className='cardTitle'>Busca tu partner</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quia voluptates modi excepturi eum, nemo aspernatur incidunt, error vitae, iure nesciunt. Aliquid, quas modi at explicabo optio labore vero?</p>
+                        <p className='cardTitle'>Busca a tu partner</p>
+                        <p>En el listado podrás encontrar al partner que más necesitas, puedes filtrar por ubicación.</p>
                     </div>
                     <div className='info-card3'>
                         <picture>
                         <img src={message} alt="" />
                         </picture>
-                        <p className='cardTitle'>Contacta al partner</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ad quia voluptates modi excepturi eum, nemo aspernatur incidunt, error vitae, iure nesciunt. Aliquid, quas modi at explicabo optio labore vero?</p>
+                        <p className='cardTitle'>Contacta por mensaje</p>
+                        <p>Conectar con tu partner es más fácil de lo que piensas, sólo contacta por WhatsaApp en el apartado de conocer a tu aliado.</p>
+                    </div>
+                    <div className='info-card1'>
+                        <picture>
+                            <img src={handshake} alt="" />
+                        </picture>
+                        <p className='cardTitle'>Contrata a tu partner</p>
+                        <p>Por medio de un acuerdo previo, puedes contratar a tu partner según las condiciones de ambos.</p>
                     </div>
                 </div>
             </div>

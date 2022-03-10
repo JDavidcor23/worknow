@@ -64,7 +64,7 @@ const FormRegister = () => {
          />
         <Link style={{fontSize:"0.8rem", textAlign:"right", padding:"0px 20px"}} to="/login">¿Ya tienes una cuenta?, ingresa aquí</Link>
         
-        <Button type="submit">Enviar</Button>
+        <Button type="submit" style={{margin:"0 auto"}}>Enviar</Button>
       </Form>
     );
 };
