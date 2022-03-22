@@ -44,3 +44,22 @@ grid-template-rows: 30% 40%;
     font-size: 1.3rem;
     font-weight: 600;
 }
+@media (max-width:900px) {
+    
+    .how-title{
+        padding: 40px;
+    }
+    .how-cont{
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+    .how-cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .info-card1, .info-card2, .info-card3{
+        margin: 20px 20px;
+    }
+}

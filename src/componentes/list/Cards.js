@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from './Card'
-import OrderBy from "./OrderBy"
 import "../../styles/cards.css"
 import { useDispatch } from "react-redux";
 import { useEffect } from 'react'
@@ -20,7 +19,6 @@ const Cards = () => {
         {jobsList !== undefined &&
         <div className='cards-container'>
 
-                <OrderBy/>
                 { jobsList.map(card => 
                 <Card data={card} key={card.id} id={card.id}/>
                 )

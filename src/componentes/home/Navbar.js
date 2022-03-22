@@ -43,13 +43,13 @@ const Navbar = () => {
             location.pathname === "/" 
             ?
             <>
-            <a href="#como-funciona">CÓMO FUNCIONA</a>
-            <a href="#nosotros">NOSOTROS</a>
+            <a href="#como-funciona" className="links-nav">CÓMO FUNCIONA</a>
+            <a href="#nosotros" className="links-nav">NOSOTROS</a>
             </>
             : 
             <>
-            <a href="/#como-funciona">CÓMO FUNCIONA</a>
-            <a href="/#nosotros">NOSOTROS</a>
+            <a href="/#como-funciona" className="links-nav">CÓMO FUNCIONA</a>
+            <a href="/#nosotros" className="links-nav">NOSOTROS</a>
             </>
           }
           {isLoggedIn && (

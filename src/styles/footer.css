@@ -16,3 +16,15 @@
 .log img{
     width: 50px;
 }
+@media (max-width:730px){
+    .footer-cont{
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        gap:0;
+        flex-wrap: wrap;
+    }
+    .log img{
+        width: 30px;
+    }
+}

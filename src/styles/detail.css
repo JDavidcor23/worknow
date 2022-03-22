@@ -1,4 +1,5 @@
 .details-cont{
+    margin: 20px;
     color: #333435;
     box-shadow: 0 4px 2px -2px rgb(202, 202, 202);
 
@@ -6,15 +7,14 @@
 
 .details-cont .conoce{
     font-size: 1.7rem;
-    margin-left: 75px;
-    margin-top: 20px;
-    border-bottom: 1px solid #333435;
+    text-align: center;
     width: fit-content;
 }
 
 .details{
     background-color: rgb(255, 255, 255);
     width: 90%;
+    height: auto;
     height: calc(100vh - 200px);
     display: flex;
     justify-content: space-evenly;
@@ -62,7 +62,6 @@
     margin: 10px;
     position: relative;
     padding: 20px;
-    background-color: aqua;
 }
 
 .aliado-contratar .picture img {
@@ -104,4 +103,24 @@
     font-size: 0.8rem;
     font-weight: 600;
     text-align: right;
+}
+@media (max-width:900px){
+    .details{
+        align-items: center;
+        height: auto;
+        flex-direction: column;
+    }
+    .aliado-contratar{
+        border: none;
+    }
+    .details .aliado-contratar, .details .aliado-info {
+        width: 100%;
+        
+    }
+    .details .contact{
+        width: 100%;
+        
+    }
+
+
 }

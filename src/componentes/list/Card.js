@@ -14,7 +14,7 @@ const Card = ({data, id}) => {
     return (
         <div className='card-cont' onClick={()=> navigateAndGetUser(id, data.uid)} >
             <picture className='card-img'>
-            <img className='image' src={data.url} alt=''/>
+                <img className='image' src={data.url} alt=''/>
             </picture>
             <p style={{textAlign:"center"}}>{data.namejob}</p>
             <p style={{textAlign:"center"}}>Valoración {data.valoration}</p>

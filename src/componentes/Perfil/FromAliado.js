@@ -48,8 +48,21 @@ const FromAliado = () => {
         showConfirmButton: false,
         timer: 2500,
       });
-      e.target.reset()
-    }else{
+      setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
+      setDateJobs({
+        uid:id,
+        type:"",
+        city:usuario.city,
+        money:"",
+        jobstype:"",
+        namejob:"",
+        description:"",
+        url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
+        valoration:5,
+        votos:[1],
+      })
+    }
+    else{
       dispatch(getJobsForEdit(idDoc, dateJobs))
       Swal.fire({
         icon: "success",
@@ -57,9 +70,22 @@ const FromAliado = () => {
         showConfirmButton: false,
         timer: 2500,
       });
+      setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
       setUpdate(false)
+      setDateJobs({
+        uid:id,
+        type:"",
+        city:usuario.city,
+        money:"",
+        jobstype:"",
+        namejob:"",
+        description:"",
+        url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
+        valoration:5,
+        votos:[1],
+      })
+      
     }
-    e.target.reset()
   }
   const handlePictureClick1 = () => {
     document.querySelector("#fileSelector1").click();
@@ -69,13 +95,16 @@ const FromAliado = () => {
     setDateJobs({
       uid:id,
       type:"",
+      city:usuario.city,
       money:"",
       jobstype:"",
       namejob:"",
       description:"",
-      url:"",
+      url:"https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png",
+      valoration:5,
+      votos:[1],
     })
-    setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png")
+    setImg1("https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646187218/work-now/hqlsfanpvurxithbtvmy.png");
   }
   const handleFileChanged1 = async(e) => {
   let url = ""

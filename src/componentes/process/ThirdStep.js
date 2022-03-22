@@ -21,7 +21,7 @@ const ThirdStep = () => {
       <div className='card3'>
           <img className='third-img' src={grade} alt="" />
           <form className='card3-form' action="">
-            <p>¿Cómo fue trabajar con Martin?</p>
+            <p>¿Cómo fue trabajar con Partner?</p>
             <div className='valoration'>
               <button type='button' 
               style={{background:"#FF5C6C"}}>1</button>

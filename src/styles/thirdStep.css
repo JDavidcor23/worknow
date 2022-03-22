@@ -16,8 +16,9 @@
 }
 
 .card3{
-display: flex;
-justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .card3-form{

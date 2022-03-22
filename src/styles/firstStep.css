@@ -1,6 +1,7 @@
 .firstStep-cont{
     background-color: white;
     width: 80%;
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
     align-items: center;

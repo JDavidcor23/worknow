@@ -3,20 +3,21 @@
 }
 
 .list-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "search cards cards";
+    display: flex;
     background-color: #E8F3FF;
-    min-height: calc(100% - 75px);
     padding: 3.6rem;
-    justify-items: center;
+
 }
 
 .cards{
-    grid-area: cards;
+    display: flex;
+    flex-wrap: wrap;
 }
-
-.search{
-    grid-area: search;
+/* .search{
     margin: auto;
+} */
+@media (max-width:950px){
+    .list-container{
+        flex-direction: column;
+    }
 }

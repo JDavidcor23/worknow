@@ -53,9 +53,9 @@ return (
     <>
     <Navbar />
     <div className="details-cont">
-        <h4 className="conoce">Conoce a tu partner</h4>
         <section className="details">
         <div className="aliado-contratar">
+            <h4 className="conoce">Conoce a tu partner</h4>
             {partner !== undefined && (
             <div
                 style={{

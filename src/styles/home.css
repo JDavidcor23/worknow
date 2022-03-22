@@ -1,9 +1,8 @@
-.main-home{
+.main-home {
     background: #E8F3FF;
     color: #333435;
-    min-height: 100vh
+    min-height: 100vh;
 }
-
 .main-title{
     font-size: 3rem;
 }
@@ -36,6 +35,7 @@
     justify-content: center; 
 }
 
+
 .search-home{
     margin: 100px 20px 0px;
 }
@@ -58,7 +58,23 @@
     gap: 30px;
     margin: 10px 20px;
 }
-
+@media (max-width: 890px) {
+    .memphis {
+        grid-row: 2
+    }
+    .memphis img{
+        width: 90vw;
+    }
+    .search-home {
+        margin: 0;
+      }
+    .buttons {
+        justify-content: center;
+    }
+    .content {
+        text-align: center;
+    }
+  } 
 .buttons > button {
     background: #00799E;
     padding: 15px 35px;
